@@ -1,0 +1,63 @@
+/* Родительский контейнер table */
+.table {
+  width: 1100px;
+  /* 550 + 550
+  183 + 183 + 183
+  45.8 + 45.8 + 45.8 + 45.8
+  */
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+/* Первый дочерний элемент контейнера table */
+.workingHours {
+  width: 50%;
+}
+/* Второй дочерний элемент контейнера table */
+.columnsGroup {
+  display: flex;
+  width: 50%;
+}
+/* columnsGroup - родительский контейнер по отношению 
+    к column они же <tr>
+    делаем column столбцами 
+    для удобства вставки новых компонент
+ */
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+}
+.month {
+  width: 183px;
+  box-sizing: border-box;
+  padding: 5px 5px;
+  background-color: #eee;
+  border: 1px solid #111;
+}
+.title {
+  width: 100%;
+  padding: 22px 0;
+  background-color: #eee;
+  border: 1px solid #111;
+}
+.week {
+  width: 45px;
+  box-sizing: border-box;
+  padding: 6px;
+  text-align: center;
+  background-color: lightgreen;
+  border: 1px solid black;
+}
+.cellhours {
+  padding: 0px;
+  border: 1px solid #111;
+}
+.cell {
+  padding: 0;
+  border-bottom: 1px solid #111;
+  border-left: 1px solid #111;
+}
