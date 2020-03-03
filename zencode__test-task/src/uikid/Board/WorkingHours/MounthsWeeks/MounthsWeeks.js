@@ -1,20 +1,16 @@
 import React, { Fragment } from 'react'
 import clases from './MounthsWeeks.module.css'
+import Mounth from './Mounth/Mounth'
 
 let MounthsWeeks = () => {
   return (
     <Fragment>
       <tr>
-        <th colSpan="4" className={clases.month}>
-          Февраль
-        </th>
-        <th colSpan="4" className={clases.month}>
-          Март
-        </th>
-        <th colSpan="5" className={clases.month}>
-          Апрель
-        </th>
+        <Mounth />
+        <Mounth />
+        <Mounth />
       </tr>
+
       <tr>
         <td className={clases.week}>6</td>
         <td className={clases.week}>7</td>
