@@ -1,0 +1,15 @@
+.month {
+  width: 183px;
+  box-sizing: border-box;
+  padding: 6px 5px;
+  background-color: #eee;
+  border: 1px solid #111;
+}
+.week {
+  width: 45px;
+  box-sizing: border-box;
+  padding: 6px;
+  text-align: center;
+  background-color: lightgreen;
+  border: 1px solid black;
+}
