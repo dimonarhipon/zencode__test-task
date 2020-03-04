@@ -1,0 +1,8 @@
+.unditableWeek {
+  width: 45px;
+  box-sizing: border-box;
+  padding: 6px;
+  text-align: center;
+  background-color: lightgreen;
+  border: 1px solid black;
+}
