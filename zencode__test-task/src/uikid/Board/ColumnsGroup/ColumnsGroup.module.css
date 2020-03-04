@@ -1,0 +1,7 @@
+/* Второй дочерний элемент контейнера table */
+.columnsGroup {
+  display: flex;
+  width: 50%;
+}
+/* columnsGroup - родительский контейнер по отношению 
+    к column */

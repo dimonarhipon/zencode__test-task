@@ -1,8 +1,8 @@
 import React from 'react'
-import './App.css'
+import Board from './uikid/Board/Board'
 
 let App = () => {
-  return <table>1</table>
+  return <Board />
 }
 
 export default App
