@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import clases from './UneditableCell.module.css'
 
-let UneditableCell = () => {
+let UneditableCell = props => {
   return (
     <Fragment>
-      <td className={clases.unditableWeek}>6</td>
+      <td className={clases.unditableWeek}>{props.week}</td>
     </Fragment>
   )
 }
