@@ -1,10 +1,11 @@
 import React from 'react'
 import clases from './Column.module.css'
+import HeaderColumn from '../ColumnHeader/ColumnHeader'
 
 let Column = () => {
   return (
     <tr className={clases.column}>
-      <th className={clases.title}>Фамилия Имя</th>
+      <HeaderColumn />
       <td className={clases.cell}>Имя 1</td>
       <td className={clases.cell}>Имя 1</td>
       <td className={clases.cell}>Имя 1</td>
