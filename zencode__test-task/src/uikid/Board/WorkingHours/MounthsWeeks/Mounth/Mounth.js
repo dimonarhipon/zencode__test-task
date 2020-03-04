@@ -2,11 +2,11 @@ import React, { Fragment } from 'react'
 import clases from './Mounth.module.css'
 import EditableCell from '../../../../Cells/EditableCell/EditableCell'
 
-let Mounth = () => {
+let Mounth = props => {
   return (
     <Fragment>
-      <th colSpan="4" className={clases.month}>
-        <EditableCell />
+      <th colSpan={props.colSpan} className={clases.month}>
+        <EditableCell title={props.title} />
       </th>
     </Fragment>
   )
