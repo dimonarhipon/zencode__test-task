@@ -2,12 +2,12 @@ import React from 'react'
 import clases from './ColumnsGroup.module.css'
 import Column from './Column/Column'
 
-let ColumnsGroup = () => {
+let ColumnsGroup = props => {
   return (
     <tbody className={clases.columnsGroup}>
-      <Column />
-      <Column />
-      <Column />
+      {props.state.columnsData.map(({ nameData }) => (
+        <Column nameData={nameData} />
+      ))}
     </tbody>
   )
 }
