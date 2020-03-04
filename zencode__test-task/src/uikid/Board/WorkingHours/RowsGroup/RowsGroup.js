@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import Row from './Row/Row'
-let RowsGroup = () => {
+let RowsGroup = props => {
   return (
     <Fragment>
-      <Row />
-      <Row />
-      <Row />
+      {props.rowsData.map(() => (
+        <Row rowsData={props.rowsData} />
+      ))}
     </Fragment>
   )
 }
