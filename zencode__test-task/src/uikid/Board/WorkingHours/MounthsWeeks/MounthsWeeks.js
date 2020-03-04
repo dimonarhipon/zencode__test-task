@@ -3,16 +3,16 @@ import React, { Fragment } from 'react'
 import Mounth from './Mounth/Mounth'
 import Week from './Week/Week'
 
-let MounthsWeeks = () => {
+let MounthsWeeks = props => {
   return (
     <Fragment>
       <tr>
-        <Mounth />
-        <Mounth />
-        <Mounth />
+        {props.mounthsData.map(({ title, colSpan }) => (
+          <Mounth title={title} colSpan={colSpan} />
+        ))}
       </tr>
       <tr>
-        <Week />
+        <Week weeksData={props.weeksData} />
       </tr>
     </Fragment>
   )
