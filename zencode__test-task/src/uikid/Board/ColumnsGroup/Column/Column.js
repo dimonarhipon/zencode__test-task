@@ -1,22 +1,20 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import clases from './Column.module.css'
 import HeaderColumn from '../ColumnHeader/ColumnHeader'
 import EditableCell from '../../../Cells/EditableCell/EditableCell'
 
-let Column = () => {
+let Column = props => {
   return (
-    <tr className={clases.column}>
-      <HeaderColumn />
-      <td className={clases.cell}>
-        <EditableCell />
-      </td>
-      <td className={clases.cell}>
-        <EditableCell />
-      </td>
-      <td className={clases.cell}>
-        <EditableCell />
-      </td>
-    </tr>
+    <Fragment>
+      <tr className={clases.column}>
+        <HeaderColumn titleColumn={props.nameData.titleColumn} />
+        {props.nameData.columns.map(({ text }) => (
+          <td className={clases.cell}>
+            <EditableCell text={text}/>
+          </td>
+        ))}
+      </tr>
+    </Fragment>
   )
 }
 export default Column
