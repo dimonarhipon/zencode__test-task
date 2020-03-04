@@ -2,11 +2,14 @@ import React from 'react'
 import clases from './WorkingHours.module.css'
 import MounthsWeeks from './MounthsWeeks/MounthsWeeks'
 import RowsGroup from './RowsGroup/RowsGroup'
-let WorkingHours = () => {
+let WorkingHours = props => {
   return (
     <tfoot className={clases.workingHours}>
-      <MounthsWeeks />
-      <RowsGroup />
+      <MounthsWeeks
+        mounthsData={props.state.mounthsData}
+        weeksData={props.state.weeksData}
+      />
+      <RowsGroup rowsData={props.state.rowsData} />
     </tfoot>
   )
 }
