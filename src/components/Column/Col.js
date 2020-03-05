@@ -7,16 +7,16 @@ let Column = props => {
     <Fragment>
       <tr className={clases.column}>
         <th className={clases.title}>
-          <Input />
+          <Input title={props.title}/>
         </th>
         <td className={clases.cell}>
-          <Input />
+          <Input text={props.text1}/>
         </td>
         <td className={clases.cell}>
-          <Input />
+          <Input text={props.text2}/>
         </td>
         <td className={clases.cell}>
-          <Input />
+          <Input text={props.text3}/>
         </td>
       </tr>
     </Fragment>
