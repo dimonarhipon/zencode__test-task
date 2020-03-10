@@ -44,6 +44,15 @@ let Row = props => {
       <td className={clases.cellhours}>
         <Input />
       </td>
+      <td className={clases.cellhours}>
+        <Input />
+      </td>
+      <td className={clases.cellhours}>
+        <Input />
+      </td>
+      <td className={clases.cellhours}>
+        <Input />
+      </td>
     </tr>
   )
 }

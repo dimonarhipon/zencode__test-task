@@ -5,8 +5,6 @@
   183 + 183 + 183
   45.8 + 45.8 + 45.8 + 45.8
   */
-  display: flex;
-  flex-direction: row;
   margin: 0 auto;
   margin-top: 20px;
   border-spacing: 0;
@@ -14,8 +12,7 @@
 }
 /* Первый дочерний элемент контейнера table */
 .columnsGroup {
-  display: flex;
-  width: 50%;
+  width: 550px;
 }
 /* columnsGroup - родительский контейнер по отношению
     к column они же <tr>
@@ -24,20 +21,22 @@
  */
 /* Второй дочерний элемент контейнера table */
 .workingHours {
-  width: 50%;
+  width: 550px;
 }
 .month {
-  width: 183px;
-  box-sizing: border-box;
-  padding: 12px 5px;
   background-color: #eee;
   border: 1px solid #111;
 }
-/* .week {
+.week {
   width: 45px;
   box-sizing: border-box;
   padding: 6px;
   text-align: center;
   background-color: lightgreen;
   border: 1px solid black;
-} */
+} 
+.title {
+  width: 183px;
+  background-color: #eee;
+  border: 0.05em solid #111;
+}
