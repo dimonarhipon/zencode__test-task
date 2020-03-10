@@ -6,7 +6,7 @@ let Row = props => {
   return (
     <tr>
       <td className={clases.cellhours}>
-        <Input fullName={props.dataRowsBody.fullName }/>
+        <Input fullName={props.dataRowsBody.fullName} handlerChangefullName={props.handlerChangefullName}/>
       </td>
       <td className={clases.cellhours}>
         <Input nameProject={props.dataRowsBody.nameProject} />
