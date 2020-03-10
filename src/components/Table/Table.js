@@ -27,7 +27,7 @@ class Table extends React.Component {
     },
     dataRowsBody: [
 	    {
-	      fullName: 'Имя 1',
+	      fullName: 'Изменяемая ячейка',
 	      nameProject: 'Проект 1',
 	      status: 'Статус 1',
 	      months: {
@@ -76,6 +76,35 @@ class Table extends React.Component {
 	    },
     ]
   }
+  
+  handlerChangefullName = (event) => {
+    let dataRowsBody = Object.assign(this.state.dataRowsBody); 
+    dataRowsBody[0].fullName = event.target.value; 
+    this.setState({ dataRowsBody }); 
+  }
+  // нужно придумать вместо 0 - index, вместо fullName - ещё один параметр
+
+
+  // handlerChangefullName = (event) => {
+  //   this.setState(state => {
+  //     let dataRowsBody = [...state.dataRowsBody];
+  //     dataRowsBody = {fullName: event.target.value, ...dataRowsBody}
+  //     return
+  //   })
+  // }
+    // this.setState(prevState => ({
+    //   dataRowsBody: {
+    //       ...prevState.dataRowsBody,
+    //       [prevState.dataRowsBody[1].fullName]: event.target.value,
+    //     },
+    // }));
+    // this.setState(prevState => {
+    //   const newDataRowsBody = [...prevState.state.dataRowsBody];
+    //   newDataRowsBody[0].fullName = event.target.value;
+    //   return {items: newDataRowsBody};
+    // })
+
+  
   render() {
     return (
       <table className={clases.table}>
@@ -105,7 +134,7 @@ class Table extends React.Component {
           </tr>
         </thead>
         <tbody className={clases.workingHours}>
-          <Row dataRowsBody={this.state.dataRowsBody[0]} />
+          <Row dataRowsBody={this.state.dataRowsBody[0]} handlerChangefullName={this.handlerChangefullName}/>
           <Row dataRowsBody={this.state.dataRowsBody[1]} />
           <Row dataRowsBody={this.state.dataRowsBody[2]} />
         </tbody>

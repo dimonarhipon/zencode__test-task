@@ -9,6 +9,7 @@ let Input = props => {
         placeholder={
           1
         }
+        onChange={props.handlerChangefullName}
         value={
           props.name || props.project || props.status || props.hours ||
           props.fullName || props.nameProject || props.status
