@@ -6,53 +6,29 @@ let Row = props => {
   return (
     <tr>
       <td className={clases.cellhours}>
-        <Input />
+        <Input fullName={props.dataRowsBody.fullName }/>
       </td>
       <td className={clases.cellhours}>
-        <Input />
+        <Input nameProject={props.dataRowsBody.nameProject} />
       </td>
       <td className={clases.cellhours}>
-        <Input />
+        <Input status={props.dataRowsBody.status }/>
       </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
-      <td className={clases.cellhours}>
-        <Input />
-      </td>
+      {props.dataRowsBody.months.Febrary.hours.map(hours => (
+        <td className={clases.cellhours}>
+          <Input hours={hours}/>
+        </td>
+      ))}
+      {props.dataRowsBody.months.Marth.hours.map(hours => (
+        <td className={clases.cellhours}>
+          <Input hours={hours}/>
+        </td>
+      ))}
+      {props.dataRowsBody.months.April.hours.map(hours => (
+        <td className={clases.cellhours}>
+          <Input hours={hours}/>
+        </td>
+      ))}
     </tr>
   )
 }
