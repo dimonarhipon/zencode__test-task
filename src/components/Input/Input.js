@@ -7,7 +7,11 @@ let Input = props => {
       <input
         className={clases.editable}
         placeholder={
-          props.titleColumn || props.text || props.title || props.number
+          1
+        }
+        value={
+          props.name || props.project || props.status || props.hours ||
+          props.fullName || props.nameProject || props.status
         }
       />
     </Fragment>

@@ -5,17 +5,88 @@ import Col from '../Column/Col'
 import Row from '../Row/Row'
 
 class Table extends React.Component {
+  state = {
+  	dataRowsHead: {
+  		name: 'Фамилия Имя',
+  		project: 'Проект',
+  		status: 'Статус',
+  		months: [
+	  		{
+	  			name: 'Февраль',
+	        weeks: [6, 7, 8, 9]
+	  		},
+	  		{
+	  			name: 'Март',
+	        weeks: [10, 11, 12, 13]
+	  		},
+	  		{
+	  			name: 'Апрель',
+	        weeks: [14, 15, 16, 17, 18]
+	  		},
+  		]      
+    },
+    dataRowsBody: [
+	    {
+	      fullName: 'Имя 1',
+	      nameProject: 'Проект 1',
+	      status: 'Статус 1',
+	      months: {
+	        Febrary: {
+	          hours: ['1', '2', '3', '4'],
+	        },
+	        Marth: {
+	          hours: ['5', '6', '7', '8'],
+	        },
+	        April: {
+	          hours: ['9', '10', '11', '12', '13'],
+	        }
+	      }
+	    },
+	    {
+	      fullName: 'Имя 2',
+	      nameProject: 'Проект 2',
+	      status: 'Статус 2',
+	      months: {
+	        Febrary: {
+	          hours: ['1', '2', '3', '4'],
+	        },
+	        Marth: {
+	          hours: ['5', '6', '7', '8'],
+	        },
+	        April: {
+	          hours: ['9', '10', '11', '12', '13'],
+	        }
+	      }
+	    },
+	    {
+	      fullName: 'Имя 3',
+	      nameProject: 'Проект 3',
+	      status: 'Статус 3',
+	      months: {
+	        Febrary: {
+	          hours: ['1', '2', '3', '4'],
+	        },
+	        Marth: {
+	          hours: ['5', '6', '7', '8'],
+	        },
+	        April: {
+	          hours: ['9', '10', '11', '12', '13'],
+	        }
+	      }
+	    },
+    ]
+  }
   render() {
     return (
       <table className={clases.table}>
         <thead className={clases.columnsGroup}>
           <tr>
-            <Col row={2} text={"Фамилия Имя"}/>
-            <Col row={2}/>
-            <Col row={2}/>
-            <Col col={4}/>
-            <Col col={4}/>
-            <Col col={5}/>
+            <Col row={2} name={this.state.dataRowsHead.name} />
+            <Col row={2} project={this.state.dataRowsHead.project} />
+            <Col row={2} status={this.state.dataRowsHead.status} />
+            <Col col={4} name={this.state.dataRowsHead.months[0].name} />
+            <Col col={4} name={this.state.dataRowsHead.months[1].name} />
+            <Col col={5} name={this.state.dataRowsHead.months[2].name} /> 
           </tr>
           <tr>
             <td className={clases.week}>6</td>
@@ -34,10 +105,9 @@ class Table extends React.Component {
           </tr>
         </thead>
         <tbody className={clases.workingHours}>
-          <Row />
-          <Row />
-          <Row />
-          <Row />
+          <Row dataRowsBody={this.state.dataRowsBody[0]} />
+          <Row dataRowsBody={this.state.dataRowsBody[1]} />
+          <Row dataRowsBody={this.state.dataRowsBody[2]} />
         </tbody>
       </table>
     )

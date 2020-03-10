@@ -5,7 +5,7 @@ import clases from './Col.module.css'
 let Column = props => {
   return (
     <th rowSpan={props.row} colSpan={props.col} className={clases.title}>
-      <Input text={props.text} />
+      <Input name={props.name} project={props.project} status={props.status} />
     </th>
   )
 }
