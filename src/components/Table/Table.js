@@ -2,6 +2,7 @@ import React from 'react'
 import clases from './Table.module.css'
 import Col from '../Column/Col'
 import Row from '../Row/Row'
+import SelectStatus from '../SelectStatus/SelectStatus'
 
 class Table extends React.Component {
   state = {
@@ -171,6 +172,7 @@ class Table extends React.Component {
             <Col col={4} name={this.state.dataRowsHead.months[0].name} />
             <Col col={4} name={this.state.dataRowsHead.months[1].name} />
             <Col col={5} name={this.state.dataRowsHead.months[2].name} />
+            
           </tr>
           <tr>
             <td className={clases.week}>6</td>
@@ -247,6 +249,7 @@ class Table extends React.Component {
 						handlerChangeMonthsAprilHours4={this.handlerChangeMonthsAprilHours4}
           />
         </tbody>
+        <SelectStatus />
       </table>
     )
   }
