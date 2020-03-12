@@ -3,6 +3,7 @@ import clases from './Table.module.css'
 import Col from '../Column/Col'
 import Row from '../Row/Row'
 import SelectStatus from '../SelectStatus/SelectStatus'
+import SelectColor from '../SelectColor/SelectColor'
 
 class Table extends React.Component {
   state = {
@@ -78,6 +79,8 @@ class Table extends React.Component {
         },
       },
     ],
+    showModalStatus: true,
+    showModalColor: true
   }
 
   handlerChangefullName = (index, event) => {
@@ -89,11 +92,6 @@ class Table extends React.Component {
   handlerChangeNameProject = (index, event) => {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].nameProject = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeStatus = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].status = event.target.value
     this.setState({ dataRowsBody })
 	}
 	handlerChangeMonthsFebraryHours0 = (index, event) => {
@@ -160,7 +158,19 @@ class Table extends React.Component {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].months.April.hours[4] = event.target.value
     this.setState({ dataRowsBody })
-	}
+  }
+  showModalStatus = () => {
+    this.setState({showModalStatus: true})
+  }
+  closeModalStatus = () => {
+    this.setState({showModalStatus: false})
+  }
+  showModalColor = () => {
+    this.setState({showModalColor: true})
+  }
+  closeModalColor = () => {
+    this.setState({showModalColor: false})
+  }
   render() {
     return (
       <table className={clases.table}>
@@ -195,7 +205,6 @@ class Table extends React.Component {
             dataRowsBody={this.state.dataRowsBody[0]}
             handlerChangefullName={this.handlerChangefullName}
 						handlerChangeNameProject={this.handlerChangeNameProject}
-						handlerChangeStatus={this.handlerChangeStatus}
 						handlerChangeMonthsFebraryHours0={this.handlerChangeMonthsFebraryHours0}
 						handlerChangeMonthsFebraryHours1={this.handlerChangeMonthsFebraryHours1}
 						handlerChangeMonthsFebraryHours2={this.handlerChangeMonthsFebraryHours2}
@@ -214,7 +223,6 @@ class Table extends React.Component {
             dataRowsBody={this.state.dataRowsBody[1]}
 						handlerChangefullName={this.handlerChangefullName}
 						handlerChangeNameProject={this.handlerChangeNameProject}
-						handlerChangeStatus={this.handlerChangeStatus}
 						handlerChangeMonthsFebraryHours0={this.handlerChangeMonthsFebraryHours0}
 						handlerChangeMonthsFebraryHours1={this.handlerChangeMonthsFebraryHours1}
 						handlerChangeMonthsFebraryHours2={this.handlerChangeMonthsFebraryHours2}
@@ -249,7 +257,14 @@ class Table extends React.Component {
 						handlerChangeMonthsAprilHours4={this.handlerChangeMonthsAprilHours4}
           />
         </tbody>
-        <SelectStatus />
+        <div className={clases.modalStatus}>
+          {this.state.showModalStatus ? <SelectStatus closeModalStatus={this.closeModalStatus} /> : null}
+        </div>
+        <div className={clases.modalColor}>
+          {this.state.showModalColor ? <SelectColor closeModalColor={this.closeModalColor} /> : null}
+        </div>
+        <button onClick={this.showModalStatus}>Выбрать Статус</button>
+        <button onClick={this.showModalColor}>Выбрать цвет</button>
       </table>
     )
   }

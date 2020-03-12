@@ -45,6 +45,7 @@ class SelectStatus extends React.Component {
             <button onClick={() => this.deleteStatus(id)} className={clases.close}>X</button>
           </div>
         ))}
+        <button onClick={() => this.props.closeModalStatus()}>Закрыть</button>
       </section>
     )
   }
