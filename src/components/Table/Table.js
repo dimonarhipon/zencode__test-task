@@ -263,8 +263,8 @@ class Table extends React.Component {
         <div className={clases.modalColor}>
           {this.state.showModalColor ? <SelectColor closeModalColor={this.closeModalColor} /> : null}
         </div>
-        <button onClick={this.showModalStatus}>Выбрать Статус</button>
-        <button onClick={this.showModalColor}>Выбрать цвет</button>
+        <button onClick={this.showModalStatus}>Редактировать Статус</button>
+        <button onClick={this.showModalColor}>Редактировать цвет</button>
       </table>
     )
   }
