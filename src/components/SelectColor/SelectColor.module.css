@@ -1,0 +1,21 @@
+.color {
+  width: 220px;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #111111;
+  background: #f1f1f1;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  align-items: center;
+}
+.close {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  color: red;
+  border: none;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '../Input/Input'
+// import SelectStatus from '../SelectStatus/SelectStatus'
 import clases from './Row.module.css'
 
 let Row = props => {
@@ -8,9 +9,6 @@ let Row = props => {
   }
   let ChangeNameProject = event => {
     props.handlerChangeNameProject(props.dataRowsBody.index, event)
-  }
-  let ChangeStatus = event => {
-    props.handlerChangeStatus(props.dataRowsBody.index, event)
   }
   let ChangeMonthsFebraryHours0 = event => {
     props.handlerChangeMonthsFebraryHours0(props.dataRowsBody.index, event)
@@ -64,7 +62,11 @@ let Row = props => {
           ChangeNameProject={ChangeNameProject} />
       </td>
       <td className={clases.cellhours}>
-        <Input status={props.dataRowsBody.status} ChangeStatus={ChangeStatus} />
+        <select>
+          <option>Идёт</option>
+          <option>Завершается</option>
+          <option>Простой</option>
+        </select>
       </td>
       {/* {props.dataRowsBody.months.Febrary.hours.map(hours => (
         <td className={clases.cellhours}>
