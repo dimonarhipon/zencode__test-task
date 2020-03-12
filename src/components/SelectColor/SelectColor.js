@@ -4,15 +4,15 @@ import clases from './SelectColor.module.css'
 class SelectColor extends React.Component {
   state = {
     colors: [
-      { id: 100, color: 1},
-      { id: 101, color: 2},
-      { id: 102, color: 3},
+      { id: 100, color: "#e53935"},
+      { id: 101, color: "#303F9F"},
+      { id: 102, color: "#388E3C"},
     ],
     counter: 103,
-    input: '',
+    input: "#FFEA00",
   }
   addColor = () => {
-    let counter = this.state.counter;
+    let counter = this.state.counter + this.state.colors.length;
     let input = this.state.input;
     let colors = { id: ++counter, color: input };
     this.state.colors.push(colors);
@@ -21,22 +21,24 @@ class SelectColor extends React.Component {
     this.setState(colors);
   }
   deleteColor = id => {
-    let item = this.state.statuses.filter(item => item.id !== id)
-    this.setState({ statuses: item })
+    let item = this.state.colors.filter(item => item.id !== id)
+    this.setState({ colors: item })
   }
-  handlerColor = () => {
-    console.log(1)
+  handlerColor = (event) => {
+    let color = event.target.value
+    this.setState({input: color})
+    console.log(this.state)
   }
   render() {
     return (
       <section className={clases.color}>
         <div className={clases.row}>
-          <input type="color" onChange={this.handlerColor} />
+          <input type="color" onChange={this.handlerColor} value={this.state.input}  />
           <button onClick={this.addColor}>Добавить</button>
         </div>
         {this.state.colors.map(({ id, color }) => (
           <div id={id} key={id} className={clases.row}>
-            <p>{color}</p>
+            <input type="color" value={color} />
             <button onClick={() => this.deleteColor(id)} className={clases.close}>X</button>
           </div>
         ))}
