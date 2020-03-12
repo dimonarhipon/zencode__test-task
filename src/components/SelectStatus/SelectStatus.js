@@ -12,7 +12,7 @@ class SelectStatus extends React.Component {
     input: '',
   }
   addStatus = () => {
-    let counter = this.state.counter;
+    let counter = this.state.counter + this.state.statuses.length;
     let input = this.state.input;
     let statuses = { id: ++counter, text: input };
     this.state.statuses.push(statuses);
