@@ -63,9 +63,9 @@ let Row = props => {
       </td>
       <td className={clases.cellhours}>
         <select>
-          <option>Идёт</option>
-          <option>Завершается</option>
-          <option>Простой</option>
+          {props.statuses.map(({text}) => (
+            <option>{text}</option>
+          ))}
         </select>
       </td>
       {/* {props.dataRowsBody.months.Febrary.hours.map(hours => (
@@ -81,6 +81,15 @@ let Row = props => {
         <Input
           hours={props.dataRowsBody.months.Febrary.hours[0]}
           ChangeMonthsFebraryHours0={ChangeMonthsFebraryHours0} />
+
+          
+          {/* ------------------------ Цвет фона ---------------- */}
+
+        <select>
+          {props.colors.map(({color}) => (
+            <option>{color}</option>
+          ))}
+        </select>
       </td>
       <td className={clases.cellhours}>
         <Input
