@@ -3,6 +3,7 @@ import clases from './Table.module.css'
 import Col from '../Column/Col'
 import Row from '../Row/Row'
 import SelectStatus from '../SelectStatus/SelectStatus'
+import SelectColor from '../SelectColor/SelectColor'
 
 class Table extends React.Component {
   state = {
@@ -30,7 +31,6 @@ class Table extends React.Component {
         index: 0,
         fullName: 'Имя 1',
         nameProject: 'Проект 1',
-        status: 'Статус 1',
         months: {
           Febrary: {
             hours: ['1', '2', '3', '4'],
@@ -47,7 +47,6 @@ class Table extends React.Component {
         index: 1,
         fullName: 'Имя 2',
         nameProject: 'Проект 2',
-        status: 'Статус 2',
         months: {
           Febrary: {
             hours: ['1', '2', '3', '4'],
@@ -64,7 +63,6 @@ class Table extends React.Component {
         index: 2,
         fullName: 'Имя 3',
         nameProject: 'Проект 3',
-        status: 'Статус 3',
         months: {
           Febrary: {
             hours: ['1', '2', '3', '4'],
@@ -78,24 +76,103 @@ class Table extends React.Component {
         },
       },
     ],
+    dataStatus: {
+      statuses: [
+        { id: 0, text: 'Идёт' },
+        { id: 1, text: 'Согласован старт' },
+        { id: 2, text: 'Завершается' },
+      ],
+      counter: 3,
+      input: '', 
+    },
+    dataColor: {
+      colors: [
+        { id: 100, color: "#388E3C", title: "Загрузка подтверждена"},
+        { id: 101, color: "#303F9F", title: "Загрузка запланирована"},
+        { id: 102, color: "#e53935", title: "Простой"},
+      ],
+      counter: 103,
+      title: "",
+      input: "#FFEA00",
+    },
+    showModalStatus: true,
+    showModalColor: true
   }
-
+  // --------------------------- Обработчики редактирования Статуса 
+  addStatus = () => {
+    let statuses = Object.assign(this.state.dataStatus.statuses)
+    let counter = this.state.dataStatus.counter + this.state.dataStatus.statuses.length;
+    let input = this.state.dataStatus.input;
+    statuses = { id: ++counter, text: input };
+    this.state.dataStatus.statuses.push(statuses);
+    // Не срабатывает присваивание пустому значению, не знаю почему
+    input = ' ';
+    this.setState(statuses);
+  }
+  deleteStatus = id => {
+    let statuses = this.state.dataStatus.statuses.filter(item => item.id !== id)
+    this.state.dataStatus.statuses.pop(statuses)
+    this.setState({ statuses })
+  }
+  handlerChangeStatus = event => {
+    let dataStatus = Object.assign(this.state.dataStatus)
+    dataStatus.input = event.target.value
+    this.setState({ dataStatus })
+  }
+  showModalStatus = () => {
+    this.setState({showModalStatus: true})
+  }
+  closeModalStatus = () => {
+    this.setState({showModalStatus: false})
+  }
+  //  ----------------------  Обработчики редактирования Цвета
+  addColor = () => {
+    let colors = Object.assign(this.state.dataColor.colors)
+    let counter = this.state.dataColor.counter + this.state.dataColor.colors.length;
+    let input = this.state.dataColor.input;
+    let title = this.state.dataColor.title;
+    colors = { id: ++counter, color: input, title: title };
+    this.state.dataColor.colors.push(colors);
+    title = ""
+    input = "";
+    this.setState(colors);
+  }
+  deleteColor = id => {
+    let colors = this.state.dataColor.colors.filter(item => item.id !== id)
+    this.state.dataColor.colors.pop(colors)
+    this.setState({ colors })
+  }
+  handlerChangeColor = (event) => {
+    let dataColor = Object.assign(this.state.dataColor)
+    dataColor.input = event.target.value
+    this.setState({dataColor})
+  }
+  handlerChangeTitleColor = (event) => {
+    let dataColor = Object.assign(this.state.dataColor)
+    dataColor.title = event.target.value
+    this.setState({dataColor})
+  }
+  showModalColor = () => {
+    this.setState({showModalColor: true})
+  }
+  closeModalColor = () => {
+    this.setState({showModalColor: false})
+  }
+  // -----------------------  Обработчик редактирования имени
   handlerChangefullName = (index, event) => {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].fullName = event.target.value
     this.setState({ dataRowsBody })
 	}
-	//  вместо fullName - ещё один параметр
+  //  вместо fullName - ещё один параметр
+  
+  // -----------------------  Обработчик редактирования названия проекта
   handlerChangeNameProject = (index, event) => {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].nameProject = event.target.value
     this.setState({ dataRowsBody })
-	}
-	handlerChangeStatus = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].status = event.target.value
-    this.setState({ dataRowsBody })
-	}
+  }
+  // -----------------------  Обработчики редактирования часов в Феврале
 	handlerChangeMonthsFebraryHours0 = (index, event) => {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].months.Febrary.hours[0] = event.target.value
@@ -115,7 +192,8 @@ class Table extends React.Component {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].months.Febrary.hours[3] = event.target.value
     this.setState({ dataRowsBody })
-	}
+  }
+  // -----------------------  Обработчики редактирования часов в Марте
 	handlerChangeMonthsMarthHours0 = (index, event) => {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].months.Marth.hours[0] = event.target.value
@@ -135,7 +213,8 @@ class Table extends React.Component {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].months.Marth.hours[3] = event.target.value
     this.setState({ dataRowsBody })
-	}
+  }
+  // -----------------------  Обработчики редактирования часов в Апреле
 	handlerChangeMonthsAprilHours0 = (index, event) => {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].months.April.hours[0] = event.target.value
@@ -160,7 +239,8 @@ class Table extends React.Component {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody[index].months.April.hours[4] = event.target.value
     this.setState({ dataRowsBody })
-	}
+  }
+  
   render() {
     return (
       <table className={clases.table}>
@@ -193,9 +273,10 @@ class Table extends React.Component {
         <tbody className={clases.workingHours}>
           <Row
             dataRowsBody={this.state.dataRowsBody[0]}
+            statuses={this.state.dataStatus.statuses}
+            colors={this.state.dataColor.colors}
             handlerChangefullName={this.handlerChangefullName}
 						handlerChangeNameProject={this.handlerChangeNameProject}
-						handlerChangeStatus={this.handlerChangeStatus}
 						handlerChangeMonthsFebraryHours0={this.handlerChangeMonthsFebraryHours0}
 						handlerChangeMonthsFebraryHours1={this.handlerChangeMonthsFebraryHours1}
 						handlerChangeMonthsFebraryHours2={this.handlerChangeMonthsFebraryHours2}
@@ -212,9 +293,10 @@ class Table extends React.Component {
           />
           <Row
             dataRowsBody={this.state.dataRowsBody[1]}
+            statuses={this.state.dataStatus.statuses}
+            colors={this.state.dataColor.colors}
 						handlerChangefullName={this.handlerChangefullName}
 						handlerChangeNameProject={this.handlerChangeNameProject}
-						handlerChangeStatus={this.handlerChangeStatus}
 						handlerChangeMonthsFebraryHours0={this.handlerChangeMonthsFebraryHours0}
 						handlerChangeMonthsFebraryHours1={this.handlerChangeMonthsFebraryHours1}
 						handlerChangeMonthsFebraryHours2={this.handlerChangeMonthsFebraryHours2}
@@ -231,6 +313,8 @@ class Table extends React.Component {
           />
           <Row
             dataRowsBody={this.state.dataRowsBody[2]}
+            statuses={this.state.dataStatus.statuses}
+            colors={this.state.dataColor.colors}
 						handlerChangefullName={this.handlerChangefullName}
 						handlerChangeNameProject={this.handlerChangeNameProject}
 						handlerChangeStatus={this.handlerChangeStatus}
@@ -249,7 +333,29 @@ class Table extends React.Component {
 						handlerChangeMonthsAprilHours4={this.handlerChangeMonthsAprilHours4}
           />
         </tbody>
-        <SelectStatus />
+        <div className={clases.modalStatus}>
+          {this.state.showModalStatus ? 
+            <SelectStatus 
+              dataStatus={this.state.dataStatus}
+              closeModalStatus={this.closeModalStatus} 
+              addStatus={this.addStatus}
+              deleteStatus={this.deleteStatus}
+              handlerChangeStatus={this.handlerChangeStatus}
+              /> : null}
+        </div>
+        <div className={clases.modalColor}>
+          {this.state.showModalColor ? 
+            <SelectColor 
+              dataColor={this.state.dataColor}
+              closeModalColor={this.closeModalColor}
+              addColor={this.addColor} 
+              deleteColor={this.deleteColor}
+              handlerChangeColor={this.handlerChangeColor}
+              handlerChangeTitleColor={this.handlerChangeTitleColor}
+              /> : null}
+        </div>
+        <button onClick={this.showModalStatus}>Редактировать Статус</button>
+        <button onClick={this.showModalColor}>Редактировать цвет</button>
       </table>
     )
   }

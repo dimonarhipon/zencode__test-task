@@ -1,5 +1,6 @@
 /* Родительский контейнер table */
 .table {
+  position: relative;
   width: 1100px;
   /* 550 + 550
   183 + 183 + 183
@@ -39,4 +40,13 @@
   width: 183px;
   background-color: #eee;
   border: 0.05em solid #111;
+}
+.modalStatus {
+  position: absolute;
+  left: 200px;
+}
+.modalColor {
+  position: absolute;
+  left: 550px;
+  width: 200px;
 }
