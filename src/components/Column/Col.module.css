@@ -1,16 +1,8 @@
-.column {
-  display: flex;
-  flex-direction: column;
-  width: 183px;
-}
+
 .title {
-  width: 100%;
-  padding: 23px 0;
+  width: 183px;
+  padding: 5px; 
   background-color: #eee;
   border: 0.05em solid #111;
 }
-.cell {
-  width: 100%;
-  padding: 0;
-  border: 0.03em solid #111;
-}
+
