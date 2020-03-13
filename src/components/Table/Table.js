@@ -365,6 +365,7 @@ export default Table
 
 
 
+
 // handlerChangefullName = (event) => {
   //   this.setState(state => {
   //     let dataRowsBody = [...state.dataRowsBody];
@@ -383,3 +384,4 @@ export default Table
   //   newDataRowsBody[0].fullName = event.target.value;
   //   return {items: newDataRowsBody};
   // })
+

@@ -33,6 +33,7 @@ let Input = props => {
           props.fullName ||
           props.nameProject ||
           props.status
+
         }
       />
     </Fragment>
