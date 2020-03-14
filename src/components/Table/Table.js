@@ -29,52 +29,100 @@ class Table extends React.Component {
     dataRowsBody: [
       {
         index: 0,
-        fullName: 'Имя 1',
-        nameProject: 'Проект 1',
+        fullName: "Имя 1",
+        nameProject: "Проект 1",
         months: {
           Febrary: {
-            hours: ['1', '2', '3', '4'],
+            hours: [
+              { number: 1, id: 1100 },
+              { number: 2, id: 1101 },
+              { number: 3, id: 1102 },
+              { number: 4, id: 1103 }
+            ]
           },
           Marth: {
-            hours: ['5', '6', '7', '8'],
+            hours: [
+              { number: 5, id: 1200 },
+              { number: 6, id: 1201 },
+              { number: 7, id: 1202 },
+              { number: 8, id: 1203 }
+            ]
           },
           April: {
-            hours: ['9', '10', '11', '12', '13'],
-          },
-        },
+            hours: [
+              { number: 9, id: 1300 },
+              { number: 10, id: 1301 },
+              { number: 11, id: 1302 },
+              { number: 12, id: 1303 },
+              { number: 13, id: 1304 }
+            ]
+          }
+        }
       },
       {
         index: 1,
-        fullName: 'Имя 2',
-        nameProject: 'Проект 2',
+        fullName: "Имя 2",
+        nameProject: "Проект 2",
         months: {
           Febrary: {
-            hours: ['1', '2', '3', '4'],
+            hours: [
+              { number: 1, id: 2000 },
+              { number: 2, id: 2001 },
+              { number: 3, id: 2002 },
+              { number: 4, id: 2003 }
+            ]
           },
           Marth: {
-            hours: ['5', '6', '7', '8'],
+            hours: [
+              { number: 5, id: 2100 },
+              { number: 6, id: 2101 },
+              { number: 7, id: 2102 },
+              { number: 8, id: 2103 }
+            ]
           },
           April: {
-            hours: ['9', '10', '11', '12', '13'],
-          },
-        },
+            hours: [
+              { number: 9, id: 2200 },
+              { number: 10, id: 2201 },
+              { number: 11, id: 2202 },
+              { number: 12, id: 2203 },
+              { number: 13, id: 2204 }
+            ]
+          }
+        }
       },
       {
         index: 2,
-        fullName: 'Имя 3',
-        nameProject: 'Проект 3',
+        fullName: "Имя 3",
+        nameProject: "Проект 3",
         months: {
           Febrary: {
-            hours: ['1', '2', '3', '4'],
+            hours: [
+              { number: 1, id: 3000 },
+              { number: 2, id: 3001 },
+              { number: 3, id: 3002 },
+              { number: 4, id: 3003 }
+            ]
           },
           Marth: {
-            hours: ['5', '6', '7', '8'],
+            hours: [
+              { number: 5, id: 3100 },
+              { number: 6, id: 3101 },
+              { number: 7, id: 3102 },
+              { number: 8, id: 3103 }
+            ]
           },
           April: {
-            hours: ['9', '10', '11', '12', '13'],
-          },
-        },
-      },
+            hours: [
+              { number: 9, id: 3200 },
+              { number: 10, id: 3201 },
+              { number: 11, id: 3202 },
+              { number: 12, id: 3203 },
+              { number: 13, id: 3204 }
+            ]
+          }
+        }
+      }
     ],
     dataStatus: {
       statuses: [
@@ -172,74 +220,42 @@ class Table extends React.Component {
     dataRowsBody[index].nameProject = event.target.value
     this.setState({ dataRowsBody })
   }
-  // -----------------------  Обработчики редактирования часов в Феврале
-	handlerChangeMonthsFebraryHours0 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.Febrary.hours[0] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsFebraryHours1 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.Febrary.hours[1] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsFebraryHours2 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.Febrary.hours[2] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsFebraryHours3 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.Febrary.hours[3] = event.target.value
-    this.setState({ dataRowsBody })
-  }
-  // -----------------------  Обработчики редактирования часов в Марте
-	handlerChangeMonthsMarthHours0 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.Marth.hours[0] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsMarthHours1 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.Marth.hours[1] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsMarthHours2 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.Marth.hours[2] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsMarthHours3 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.Marth.hours[3] = event.target.value
-    this.setState({ dataRowsBody })
-  }
-  // -----------------------  Обработчики редактирования часов в Апреле
-	handlerChangeMonthsAprilHours0 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.April.hours[0] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsAprilHours1 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.April.hours[1] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsAprilHours2 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.April.hours[2] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsAprilHours3 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.April.hours[3] = event.target.value
-    this.setState({ dataRowsBody })
-	}
-	handlerChangeMonthsAprilHours4 = (index, event) => {
-    let dataRowsBody = Object.assign(this.state.dataRowsBody)
-    dataRowsBody[index].months.April.hours[4] = event.target.value
-    this.setState({ dataRowsBody })
-  }
+
+  // -----------------------  Обработчик редактирования часов в Феврале
+  handlerChangeMonthsFebraryHours = (id, event, index) => {
+    let item = this.state.dataRowsBody[index].months.Febrary.hours.findIndex(
+      number => number.id === id
+    );
+    let hours = Object.assign(
+      this.state.dataRowsBody[index].months.Febrary.hours
+    );
+    hours[item].number = event.target.value;
+    this.setState({ hours });
+  };
+
+  // -----------------------  Обработчик редактирования часов в Марте
+  handlerChangeMonthsMarthHours = (id, event, index) => {
+    let item = this.state.dataRowsBody[index].months.Marth.hours.findIndex(
+      number => number.id === id
+    );
+    let hours = Object.assign(
+      this.state.dataRowsBody[index].months.Marth.hours
+    );
+    hours[item].number = event.target.value;
+    this.setState({ hours });
+  };
+  
+    // -----------------------  Обработчик редактирования часов в Апреле
+  handlerChangeMonthsAprilHours = (id, event, index) => {
+    let item = this.state.dataRowsBody[index].months.April.hours.findIndex(
+      number => number.id === id
+    );
+    let hours = Object.assign(
+      this.state.dataRowsBody[index].months.April.hours
+    );
+    hours[item].number = event.target.value;
+    this.setState({ hours });
+  };
   
   render() {
     return (
@@ -277,19 +293,10 @@ class Table extends React.Component {
             colors={this.state.dataColor.colors}
             handlerChangefullName={this.handlerChangefullName}
 						handlerChangeNameProject={this.handlerChangeNameProject}
-						handlerChangeMonthsFebraryHours0={this.handlerChangeMonthsFebraryHours0}
-						handlerChangeMonthsFebraryHours1={this.handlerChangeMonthsFebraryHours1}
-						handlerChangeMonthsFebraryHours2={this.handlerChangeMonthsFebraryHours2}
-						handlerChangeMonthsFebraryHours3={this.handlerChangeMonthsFebraryHours3}
-						handlerChangeMonthsMarthHours0={this.handlerChangeMonthsMarthHours0}
-						handlerChangeMonthsMarthHours1={this.handlerChangeMonthsMarthHours1}
-						handlerChangeMonthsMarthHours2={this.handlerChangeMonthsMarthHours2}
-						handlerChangeMonthsMarthHours3={this.handlerChangeMonthsMarthHours3}
-						handlerChangeMonthsAprilHours0={this.handlerChangeMonthsAprilHours0}
-						handlerChangeMonthsAprilHours1={this.handlerChangeMonthsAprilHours1}
-						handlerChangeMonthsAprilHours2={this.handlerChangeMonthsAprilHours2}
-						handlerChangeMonthsAprilHours3={this.handlerChangeMonthsAprilHours3}
-						handlerChangeMonthsAprilHours4={this.handlerChangeMonthsAprilHours4}
+						
+            handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
+            handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
+            handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
           />
           <Row
             dataRowsBody={this.state.dataRowsBody[1]}
@@ -297,19 +304,10 @@ class Table extends React.Component {
             colors={this.state.dataColor.colors}
 						handlerChangefullName={this.handlerChangefullName}
 						handlerChangeNameProject={this.handlerChangeNameProject}
-						handlerChangeMonthsFebraryHours0={this.handlerChangeMonthsFebraryHours0}
-						handlerChangeMonthsFebraryHours1={this.handlerChangeMonthsFebraryHours1}
-						handlerChangeMonthsFebraryHours2={this.handlerChangeMonthsFebraryHours2}
-						handlerChangeMonthsFebraryHours3={this.handlerChangeMonthsFebraryHours3}
-						handlerChangeMonthsMarthHours0={this.handlerChangeMonthsMarthHours0}
-						handlerChangeMonthsMarthHours1={this.handlerChangeMonthsMarthHours1}
-						handlerChangeMonthsMarthHours2={this.handlerChangeMonthsMarthHours2}
-						handlerChangeMonthsMarthHours3={this.handlerChangeMonthsMarthHours3}
-						handlerChangeMonthsAprilHours0={this.handlerChangeMonthsAprilHours0}
-						handlerChangeMonthsAprilHours1={this.handlerChangeMonthsAprilHours1}
-						handlerChangeMonthsAprilHours2={this.handlerChangeMonthsAprilHours2}
-						handlerChangeMonthsAprilHours3={this.handlerChangeMonthsAprilHours3}
-						handlerChangeMonthsAprilHours4={this.handlerChangeMonthsAprilHours4}
+
+            handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
+            handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
+            handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
           />
           <Row
             dataRowsBody={this.state.dataRowsBody[2]}
@@ -317,20 +315,10 @@ class Table extends React.Component {
             colors={this.state.dataColor.colors}
 						handlerChangefullName={this.handlerChangefullName}
 						handlerChangeNameProject={this.handlerChangeNameProject}
-						handlerChangeStatus={this.handlerChangeStatus}
-						handlerChangeMonthsFebraryHours0={this.handlerChangeMonthsFebraryHours0}
-						handlerChangeMonthsFebraryHours1={this.handlerChangeMonthsFebraryHours1}
-						handlerChangeMonthsFebraryHours2={this.handlerChangeMonthsFebraryHours2}
-						handlerChangeMonthsFebraryHours3={this.handlerChangeMonthsFebraryHours3}
-						handlerChangeMonthsMarthHours0={this.handlerChangeMonthsMarthHours0}
-						handlerChangeMonthsMarthHours1={this.handlerChangeMonthsMarthHours1}
-						handlerChangeMonthsMarthHours2={this.handlerChangeMonthsMarthHours2}
-						handlerChangeMonthsMarthHours3={this.handlerChangeMonthsMarthHours3}
-						handlerChangeMonthsAprilHours0={this.handlerChangeMonthsAprilHours0}
-						handlerChangeMonthsAprilHours1={this.handlerChangeMonthsAprilHours1}
-						handlerChangeMonthsAprilHours2={this.handlerChangeMonthsAprilHours2}
-						handlerChangeMonthsAprilHours3={this.handlerChangeMonthsAprilHours3}
-						handlerChangeMonthsAprilHours4={this.handlerChangeMonthsAprilHours4}
+            
+            handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
+            handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
+            handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
           />
         </tbody>
         <div className={clases.modalStatus}>
@@ -343,7 +331,7 @@ class Table extends React.Component {
               handlerChangeStatus={this.handlerChangeStatus}
               /> : null}
         </div>
-        <div className={clases.modalColor}>
+        <div className={clases.modalColor}>    
           {this.state.showModalColor ? 
             <SelectColor 
               dataColor={this.state.dataColor}
@@ -361,7 +349,6 @@ class Table extends React.Component {
   }
 }
 export default Table
-
 
 
 
