@@ -1,9 +1,9 @@
 import React from 'react'
 import clases from './Table.module.css'
-import Col from '../Column/Col'
+import Col from '../../Column/Col'
 import Row from '../Row/Row'
-import SelectStatus from '../SelectStatus/SelectStatus'
-import SelectColor from '../SelectColor/SelectColor'
+import Modal from '../Modal/Modal'
+import Button from '../Button/Button'
 
 class Table extends React.Component {
   state = {
@@ -131,7 +131,8 @@ class Table extends React.Component {
         { id: 2, text: 'Завершается' },
       ],
       counter: 3,
-      input: '', 
+      input: '0', 
+      value: "Пример"
     },
     dataColor: {
       colors: [
@@ -140,7 +141,8 @@ class Table extends React.Component {
         { id: 102, color: "#e53935", title: "Простой"},
       ],
       counter: 103,
-      title: "",
+      value: "Пример",
+      title: "1",
       input: "#FFEA00",
     },
     showModalStatus: true,
@@ -150,11 +152,11 @@ class Table extends React.Component {
   addStatus = () => {
     let statuses = Object.assign(this.state.dataStatus.statuses)
     let counter = this.state.dataStatus.counter + this.state.dataStatus.statuses.length;
-    let input = this.state.dataStatus.input;
-    statuses = { id: ++counter, text: input };
+    let value = this.state.dataStatus.value;
+    statuses = { id: ++counter, text: value };
     this.state.dataStatus.statuses.push(statuses);
     // Не срабатывает присваивание пустому значению, не знаю почему
-    input = ' ';
+    value = ' ';
     this.setState(statuses);
   }
   deleteStatus = id => {
@@ -164,7 +166,7 @@ class Table extends React.Component {
   }
   handlerChangeStatus = event => {
     let dataStatus = Object.assign(this.state.dataStatus)
-    dataStatus.input = event.target.value
+    dataStatus.value = event.target.value
     this.setState({ dataStatus })
   }
   showModalStatus = () => {
@@ -178,10 +180,10 @@ class Table extends React.Component {
     let colors = Object.assign(this.state.dataColor.colors)
     let counter = this.state.dataColor.counter + this.state.dataColor.colors.length;
     let input = this.state.dataColor.input;
-    let title = this.state.dataColor.title;
-    colors = { id: ++counter, color: input, title: title };
+    let value = this.state.dataColor.value;
+    colors = { id: ++counter, color: input, value: value };
     this.state.dataColor.colors.push(colors);
-    title = ""
+    value = ""
     input = "";
     this.setState(colors);
   }
@@ -197,7 +199,7 @@ class Table extends React.Component {
   }
   handlerChangeTitleColor = (event) => {
     let dataColor = Object.assign(this.state.dataColor)
-    dataColor.title = event.target.value
+    dataColor.value = event.target.value
     this.setState({dataColor})
   }
   showModalColor = () => {
@@ -245,7 +247,7 @@ class Table extends React.Component {
     this.setState({ hours });
   };
   
-    // -----------------------  Обработчик редактирования часов в Апреле
+  // -----------------------  Обработчик редактирования часов в Апреле
   handlerChangeMonthsAprilHours = (id, event, index) => {
     let item = this.state.dataRowsBody[index].months.April.hours.findIndex(
       number => number.id === id
@@ -262,13 +264,12 @@ class Table extends React.Component {
       <table className={clases.table}>
         <thead className={clases.columnsGroup}>
           <tr>
-            <Col row={2} name={this.state.dataRowsHead.name} />
-            <Col row={2} project={this.state.dataRowsHead.project} />
-            <Col row={2} status={this.state.dataRowsHead.status} />
-            <Col col={4} name={this.state.dataRowsHead.months[0].name} />
-            <Col col={4} name={this.state.dataRowsHead.months[1].name} />
-            <Col col={5} name={this.state.dataRowsHead.months[2].name} />
-            
+            <Col row={2} value={this.state.dataRowsHead.name} />
+            <Col row={2} value={this.state.dataRowsHead.project} />
+            <Col row={2} value={this.state.dataRowsHead.status} />
+            <Col col={4} value={this.state.dataRowsHead.months[0].name} />
+            <Col col={4} value={this.state.dataRowsHead.months[1].name} />
+            <Col col={5} value={this.state.dataRowsHead.months[2].name} />
           </tr>
           <tr>
             <td className={clases.week}>6</td>
@@ -323,27 +324,32 @@ class Table extends React.Component {
         </tbody>
         <div className={clases.modalStatus}>
           {this.state.showModalStatus ? 
-            <SelectStatus 
-              dataStatus={this.state.dataStatus}
-              closeModalStatus={this.closeModalStatus} 
-              addStatus={this.addStatus}
-              deleteStatus={this.deleteStatus}
-              handlerChangeStatus={this.handlerChangeStatus}
+            <Modal
+              data={this.state.dataStatus.statuses}
+              closeModal={this.closeModalStatus} 
+              add={this.addStatus}
+              delete={this.deleteStatus}
+              handlerChange={this.handlerChangeStatus}
+              value={this.state.dataStatus.value}
+              type="hidden"
               /> : null}
         </div>
         <div className={clases.modalColor}>    
           {this.state.showModalColor ? 
-            <SelectColor 
-              dataColor={this.state.dataColor}
-              closeModalColor={this.closeModalColor}
-              addColor={this.addColor} 
-              deleteColor={this.deleteColor}
-              handlerChangeColor={this.handlerChangeColor}
-              handlerChangeTitleColor={this.handlerChangeTitleColor}
+            <Modal
+              data={this.state.dataColor.colors}
+              closeModal={this.closeModalColor}
+              add={this.addColor} 
+              delete={this.deleteColor}
+              handlerChange={this.handlerChangeColor}
+              value={this.state.dataColor.value}
+              type="color"
+              handlerChangeTitle={this.handlerChangeTitleColor}
+              input={this.state.dataColor.input}
               /> : null}
         </div>
-        <button onClick={this.showModalStatus}>Редактировать Статус</button>
-        <button onClick={this.showModalColor}>Редактировать цвет</button>
+        <Button onClick={this.showModalStatus} value={"Редактировать статус"}/>
+        <Button onClick={this.showModalColor} value={"Редактировать цвет"}/>
       </table>
     )
   }

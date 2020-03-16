@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import clases from './Input.module.css'
 
 let Input = props => {
-  let ChangeHours = (event) => {
+  let onChange = (event) => {
     props.ChangeMonthsHours(props.id, event)
   }
   return (
@@ -11,18 +11,10 @@ let Input = props => {
         className={clases.editable}
         placeholder={1}
         onChange={
-          props.ChangefullName ||
-          props.ChangeNameProject ||
-          ChangeHours 
+          props.ChangeName ||
+          onChange 
         }
-        value={
-          props.name ||
-          props.project ||
-          props.number ||
-          props.fullName ||
-          props.nameProject ||
-          props.status
-        }
+        value={props.value}
       />
     </Fragment>
   )

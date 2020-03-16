@@ -36,13 +36,13 @@ let Row = props => {
     <tr>
       <td className={clases.cellhours}>
         <Input
-          fullName={props.dataRowsBody.fullName}
-          ChangefullName={ChangefullName} />
+          value={props.dataRowsBody.fullName}
+          ChangeName={ChangefullName} />
       </td>
       <td className={clases.cellhours}>
         <Input
-          nameProject={props.dataRowsBody.nameProject}
-          ChangeNameProject={ChangeNameProject} />
+          value={props.dataRowsBody.nameProject}
+          ChangeName={ChangeNameProject} />
       </td>
       <td className={clases.cellhours}>
         <select>
@@ -67,7 +67,7 @@ let Row = props => {
             <Input
               key={id}
               ChangeMonthsHours={ChangeMonthsFebraryHours}
-              number={number}
+              value={number}
               id={id}
             />
           </td>
@@ -79,7 +79,7 @@ let Row = props => {
             <Input
               key={id}
               ChangeMonthsHours={ChangeMonthsMarthHours}
-              number={number}
+              value={number}
               id={id}
             />
           </td>
@@ -91,7 +91,7 @@ let Row = props => {
             <Input
               key={id}
               ChangeMonthsHours={ChangeMonthsAprilHours}
-              number={number}
+              value={number}
               id={id}
             />
           </td>
