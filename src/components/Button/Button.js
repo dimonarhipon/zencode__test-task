@@ -5,7 +5,6 @@ let Button = (props) => {
     <Fragment>
       <button onClick={props.onClick}>{props.value}</button>
     </Fragment>
-    
   )
 }
 export default Button

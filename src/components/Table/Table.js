@@ -13,16 +13,20 @@ class Table extends React.Component {
       status: 'Статус',
       months: [
         {
-          name: 'Февраль',
-          weeks: [6, 7, 8, 9],
-        },
-        {
           name: 'Март',
           weeks: [10, 11, 12, 13],
         },
         {
           name: 'Апрель',
           weeks: [14, 15, 16, 17, 18],
+        },
+        {
+          name: 'Май',
+          weeks: [19, 20, 21, 22],
+        },
+        {
+          name: 'Июнь',
+          weeks: [23, 24, 25, 26],
         },
       ],
     },
@@ -145,9 +149,93 @@ class Table extends React.Component {
       title: "1",
       input: "#FFEA00",
     },
-    showModalStatus: true,
-    showModalColor: true
+    showModalStatus: false,
+    showModalColor: false
   }
+  
+  addDeveloper = () => {
+    let dataRowsBody = Object.assign(this.state.dataRowsBody)
+    dataRowsBody = {
+      index: dataRowsBody.length,
+      fullName: "Имя",
+      nameProject: "Проект",
+      months: {
+        Febrary: {
+          hours: [
+            { number: 1, id: 4000 },
+            { number: 2, id: 4001 },
+            { number: 3, id: 4002 },
+            { number: 4, id: 4003 }
+          ]
+        },
+        Marth: {
+          hours: [
+            { number: 5, id: 4100 },
+            { number: 6, id: 4101 },
+            { number: 7, id: 4102 },
+            { number: 8, id: 4103 }
+          ]
+        },
+        April: {
+          hours: [
+            { number: 9, id: 4200 },
+            { number: 10, id: 4201 },
+            { number: 11, id: 4202 },
+            { number: 12, id: 4203 },
+            { number: 13, id: 4204 }
+          ]
+        }
+      }
+    }
+    this.state.dataRowsBody.push(dataRowsBody);
+    this.setState(dataRowsBody);
+  }
+
+  // addStatus = () => {
+  //   let statuses = Object.assign(this.state.dataStatus.statuses)
+  //   let counter = this.state.dataStatus.counter + this.state.dataStatus.statuses.length;
+  //   let value = this.state.dataStatus.value;
+  //   statuses = { id: ++counter, text: value };
+  //   this.state.dataStatus.statuses.push(statuses);
+  //   // Не срабатывает присваивание пустому значению, не знаю почему
+  //   value = ' ';
+  //   this.setState(statuses);
+  // }
+
+
+
+
+  // componentDidMount() {
+    //   let state = this.state;
+    //   localStorage.setItem('state', JSON.stringify(state));
+    //   this.setState(state);
+    // state = JSON.parse(localStorage.getItem('state'));
+
+    // localStorage.setItem('RowsHead', JSON.stringify(dataRowsHead));
+    // localStorage.setItem('RowsBody', JSON.stringify(dataRowsBody));
+    // localStorage.setItem('Status', JSON.stringify(dataStatus));
+    // localStorage.setItem('Color', JSON.stringify(dataColor));
+    // localStorage.setItem('showModalStatus', JSON.stringify(showModalStatus));
+    // localStorage.setItem('showModalColor', JSON.stringify(showModalColor));
+
+
+    
+    // let dataRowsHead = JSON.parse(localStorage.getItem("RowsHead"));
+    // let dataRowsBody = JSON.parse(localStorage.getItem("RowsBody"));
+    // let dataStatus = JSON.parse(localStorage.getItem("Status"));
+    // let dataColor = JSON.parse(localStorage.getItem('Color'));
+    // let showModalStatus = JSON.parse(localStorage.getItem('showModalStatus'));
+    // let showModalColor = JSON.parse(localStorage.getItem('showModalColor'));
+    
+    // this.setState(state);
+  // };
+  
+  // componentDidUpdate() {
+  //   let state = JSON.parse(localStorage.getItem("state"));
+  //   this.setState(state);
+  // }
+
+
   // --------------------------- Обработчики редактирования Статуса 
   addStatus = () => {
     let statuses = Object.assign(this.state.dataStatus.statuses)
@@ -268,59 +356,49 @@ class Table extends React.Component {
             <Col row={2} value={this.state.dataRowsHead.project} />
             <Col row={2} value={this.state.dataRowsHead.status} />
             <Col col={4} value={this.state.dataRowsHead.months[0].name} />
-            <Col col={4} value={this.state.dataRowsHead.months[1].name} />
-            <Col col={5} value={this.state.dataRowsHead.months[2].name} />
+            <Col col={5} value={this.state.dataRowsHead.months[1].name} />
+            <Col col={4} value={this.state.dataRowsHead.months[2].name} />
+            <Col col={4} value={this.state.dataRowsHead.months[3].name} />
           </tr>
           <tr>
-            <td className={clases.week}>6</td>
-            <td className={clases.week}>7</td>
-            <td className={clases.week}>8</td>
-            <td className={clases.week}>9</td>
             <td className={clases.week}>10</td>
             <td className={clases.week}>11</td>
             <td className={clases.week}>12</td>
             <td className={clases.week}>13</td>
+
             <td className={clases.week}>14</td>
             <td className={clases.week}>15</td>
             <td className={clases.week}>16</td>
             <td className={clases.week}>17</td>
             <td className={clases.week}>18</td>
+
+            <td className={clases.week}>19</td>
+            <td className={clases.week}>20</td>
+            <td className={clases.week}>21</td>
+            <td className={clases.week}>22</td>
+
+            <td className={clases.week}>23</td>
+            <td className={clases.week}>24</td>
+            <td className={clases.week}>25</td>
+            <td className={clases.week}>26</td>
           </tr>
         </thead>
         <tbody className={clases.workingHours}>
-          <Row
-            dataRowsBody={this.state.dataRowsBody[0]}
-            statuses={this.state.dataStatus.statuses}
-            colors={this.state.dataColor.colors}
-            handlerChangefullName={this.handlerChangefullName}
-						handlerChangeNameProject={this.handlerChangeNameProject}
-						
-            handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
-            handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
-            handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
-          />
-          <Row
-            dataRowsBody={this.state.dataRowsBody[1]}
-            statuses={this.state.dataStatus.statuses}
-            colors={this.state.dataColor.colors}
-						handlerChangefullName={this.handlerChangefullName}
-						handlerChangeNameProject={this.handlerChangeNameProject}
-
-            handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
-            handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
-            handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
-          />
-          <Row
-            dataRowsBody={this.state.dataRowsBody[2]}
-            statuses={this.state.dataStatus.statuses}
-            colors={this.state.dataColor.colors}
-						handlerChangefullName={this.handlerChangefullName}
-						handlerChangeNameProject={this.handlerChangeNameProject}
-            
-            handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
-            handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
-            handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
-          />
+          {this.state.dataRowsBody.map(({index}) => (
+            <Row
+              dataRowsBody={this.state.dataRowsBody[index]}
+              statuses={this.state.dataStatus.statuses}
+              colors={this.state.dataColor.colors}
+              handlerChangefullName={this.handlerChangefullName}
+              handlerChangeNameProject={this.handlerChangeNameProject}
+              
+              handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
+              handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
+              handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
+            />
+          ))}
+          
+          <Button onClick={this.addDeveloper} value={"Добавить"} />
         </tbody>
         <div className={clases.modalStatus}>
           {this.state.showModalStatus ? 
@@ -349,7 +427,7 @@ class Table extends React.Component {
               /> : null}
         </div>
         <Button onClick={this.showModalStatus} value={"Редактировать статус"}/>
-        <Button onClick={this.showModalColor} value={"Редактировать цвет"}/>
+        <Button onClick={this.showModalColor} value={"Редактировать цвет"}/> 
       </table>
     )
   }

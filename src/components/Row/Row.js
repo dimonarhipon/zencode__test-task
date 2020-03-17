@@ -63,7 +63,7 @@ let Row = props => {
       </td> */} 
       {props.dataRowsBody.months.Febrary.hours.map(
         ({ id, number }) => (
-          <td className={clases.cellhours}>
+          <td className={clases.cellhours} >
             <Input
               key={id}
               ChangeMonthsHours={ChangeMonthsFebraryHours}
