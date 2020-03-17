@@ -6,28 +6,25 @@ import Modal from '../Modal/Modal'
 import Button from '../Button/Button'
 
 class Table extends React.Component {
+  now = new Date()
   state = {
     dataRowsHead: {
       name: 'Фамилия Имя',
       project: 'Проект',
       status: 'Статус',
       months: [
-        {
-          name: 'Март',
-          weeks: [10, 11, 12, 13],
-        },
-        {
-          name: 'Апрель',
-          weeks: [14, 15, 16, 17, 18],
-        },
-        {
-          name: 'Май',
-          weeks: [19, 20, 21, 22],
-        },
-        {
-          name: 'Июнь',
-          weeks: [23, 24, 25, 26],
-        },
+        { name: 'Январь',   weeks: [1, 2, 3, 4, 5] },
+        { name: 'Февраль',  weeks: [6, 7, 8, 9] },
+        { name: 'Март',     weeks: [10, 11, 12, 13],},
+        { name: 'Апрель',   weeks: [14, 15, 16, 17, 18],},
+        { name: 'Май',      weeks: [19, 20, 21, 22], },
+        { name: 'Июнь',     weeks: [23, 24, 25, 26],},
+        { name: 'Июль',     weeks: [27, 28, 29, 30, 31],},
+        { name: 'Август',   weeks: [32, 33, 34, 35],},
+        { name: 'Сентябрь', weeks: [36, 37, 38, 39, 40],},
+        { name: 'Октябрь',  weeks: [41, 42, 43, 44],},
+        { name: 'Ноябрь',   weeks: [45, 46, 47, 48],},
+        { name: 'Декабрь',  weeks: [49, 50, 51, 52, 53],},
       ],
     },
     dataRowsBody: [
@@ -35,98 +32,290 @@ class Table extends React.Component {
         index: 0,
         fullName: "Имя 1",
         nameProject: "Проект 1",
-        months: {
-          Febrary: {
-            hours: [
-              { number: 1, id: 1100 },
-              { number: 2, id: 1101 },
-              { number: 3, id: 1102 },
-              { number: 4, id: 1103 }
-            ]
-          },
-          Marth: {
-            hours: [
-              { number: 5, id: 1200 },
-              { number: 6, id: 1201 },
-              { number: 7, id: 1202 },
-              { number: 8, id: 1203 }
-            ]
-          },
-          April: {
-            hours: [
-              { number: 9, id: 1300 },
-              { number: 10, id: 1301 },
-              { number: 11, id: 1302 },
-              { number: 12, id: 1303 },
-              { number: 13, id: 1304 }
-            ]
-          }
-        }
+        months: [
+          // 0 - январь
+          [
+            { number: 1, id: 1000 },
+            { number: 2, id: 1001 },
+            { number: 3, id: 1002 },
+            { number: 4, id: 1003 },
+            { number: 5, id: 1004 }
+          ],
+          // 1 - февраль
+          [
+            { number: 6, id: 1010 },
+            { number: 7, id: 1011 },
+            { number: 8, id: 1012 },
+            { number: 9, id: 1013 }
+          ],
+          // 2 - март
+          [
+            { number: 10, id: 1020 },
+            { number: 11, id: 1021 },
+            { number: 12, id: 1022 },
+            { number: 13, id: 1023 }
+          ],
+          // 3 - апрель
+          [
+            { number: 14, id: 1030 },
+            { number: 15, id: 1031 },
+            { number: 16, id: 1032 },
+            { number: 17, id: 1033 },
+            { number: 18, id: 1034 }
+          ],
+          // 4 - май
+          [
+            { number: 19, id: 1040 },
+            { number: 20, id: 1041 },
+            { number: 21, id: 1042 },
+            { number: 22, id: 1043 },
+          ],
+          // 5 - июнь
+          [
+            { number: 23, id: 1050 },
+            { number: 24, id: 1051 },
+            { number: 25, id: 1052 },
+            { number: 26, id: 1053 },
+          ],
+          // 6 - июль
+          [
+            { number: 27, id: 1060 },
+            { number: 28, id: 1061 },
+            { number: 29, id: 1062 },
+            { number: 30, id: 1063 },
+            { number: 31, id: 1064 }
+          ],
+          // 7 - август
+          [
+            { number: 32, id: 1070 },
+            { number: 33, id: 1071 },
+            { number: 34, id: 1072 },
+            { number: 35, id: 1073 },
+          ],
+          // 8 - сентябрь
+          [
+            { number: 36, id: 1080 },
+            { number: 37, id: 1081 },
+            { number: 38, id: 1082 },
+            { number: 39, id: 1083 },
+            { number: 40, id: 1084 }
+          ],
+          // 9 - октябрь
+          [
+            { number: 41, id: 1090 },
+            { number: 42, id: 1091 },
+            { number: 43, id: 1092 },
+            { number: 44, id: 1093 },
+          ],
+          // 10 - ноябрь
+          [
+            { number: 45, id: 1100 },
+            { number: 46, id: 1101 },
+            { number: 47, id: 1102 },
+            { number: 48, id: 1103 },
+          ],
+          // 11 - декабрь
+          [
+            { number: 49, id: 1200 },
+            { number: 50, id: 1201 },
+            { number: 51, id: 1202 },
+            { number: 52, id: 1203 },
+            { number: 53, id: 1203 },
+          ]
+        ]
       },
       {
         index: 1,
-        fullName: "Имя 2",
-        nameProject: "Проект 2",
-        months: {
-          Febrary: {
-            hours: [
-              { number: 1, id: 2000 },
-              { number: 2, id: 2001 },
-              { number: 3, id: 2002 },
-              { number: 4, id: 2003 }
-            ]
-          },
-          Marth: {
-            hours: [
-              { number: 5, id: 2100 },
-              { number: 6, id: 2101 },
-              { number: 7, id: 2102 },
-              { number: 8, id: 2103 }
-            ]
-          },
-          April: {
-            hours: [
-              { number: 9, id: 2200 },
-              { number: 10, id: 2201 },
-              { number: 11, id: 2202 },
-              { number: 12, id: 2203 },
-              { number: 13, id: 2204 }
-            ]
-          }
-        }
+        fullName: "Имя 1",
+        nameProject: "Проект 1",
+        months: [
+          // 0 - январь
+          [
+            { number: 1, id: 1000 },
+            { number: 2, id: 1001 },
+            { number: 3, id: 1002 },
+            { number: 4, id: 1003 },
+            { number: 5, id: 1004 }
+          ],
+          // 1 - февраль
+          [
+            { number: 6, id: 1010 },
+            { number: 7, id: 1011 },
+            { number: 8, id: 1012 },
+            { number: 9, id: 1013 }
+          ],
+          // 2 - март
+          [
+            { number: 10, id: 1020 },
+            { number: 11, id: 1021 },
+            { number: 12, id: 1022 },
+            { number: 13, id: 1023 }
+          ],
+          // 3 - апрель
+          [
+            { number: 14, id: 1030 },
+            { number: 15, id: 1031 },
+            { number: 16, id: 1032 },
+            { number: 17, id: 1033 },
+            { number: 18, id: 1034 }
+          ],
+          // 4 - май
+          [
+            { number: 19, id: 1040 },
+            { number: 20, id: 1041 },
+            { number: 21, id: 1042 },
+            { number: 22, id: 1043 },
+          ],
+          // 5 - июнь
+          [
+            { number: 23, id: 1050 },
+            { number: 24, id: 1051 },
+            { number: 25, id: 1052 },
+            { number: 26, id: 1053 },
+          ],
+          // 6 - июль
+          [
+            { number: 27, id: 1060 },
+            { number: 28, id: 1061 },
+            { number: 29, id: 1062 },
+            { number: 30, id: 1063 },
+            { number: 31, id: 1064 }
+          ],
+          // 7 - август
+          [
+            { number: 32, id: 1070 },
+            { number: 33, id: 1071 },
+            { number: 34, id: 1072 },
+            { number: 35, id: 1073 },
+          ],
+          // 8 - сентябрь
+          [
+            { number: 36, id: 1080 },
+            { number: 37, id: 1081 },
+            { number: 38, id: 1082 },
+            { number: 39, id: 1083 },
+            { number: 40, id: 1084 }
+          ],
+          // 9 - октябрь
+          [
+            { number: 41, id: 1090 },
+            { number: 42, id: 1091 },
+            { number: 43, id: 1092 },
+            { number: 44, id: 1093 },
+          ],
+          // 10 - ноябрь
+          [
+            { number: 45, id: 1100 },
+            { number: 46, id: 1101 },
+            { number: 47, id: 1102 },
+            { number: 48, id: 1103 },
+          ],
+          // 11 - декабрь
+          [
+            { number: 49, id: 1200 },
+            { number: 50, id: 1201 },
+            { number: 51, id: 1202 },
+            { number: 52, id: 1203 },
+            { number: 53, id: 1203 },
+          ]
+        ]
       },
       {
         index: 2,
-        fullName: "Имя 3",
-        nameProject: "Проект 3",
-        months: {
-          Febrary: {
-            hours: [
-              { number: 1, id: 3000 },
-              { number: 2, id: 3001 },
-              { number: 3, id: 3002 },
-              { number: 4, id: 3003 }
-            ]
-          },
-          Marth: {
-            hours: [
-              { number: 5, id: 3100 },
-              { number: 6, id: 3101 },
-              { number: 7, id: 3102 },
-              { number: 8, id: 3103 }
-            ]
-          },
-          April: {
-            hours: [
-              { number: 9, id: 3200 },
-              { number: 10, id: 3201 },
-              { number: 11, id: 3202 },
-              { number: 12, id: 3203 },
-              { number: 13, id: 3204 }
-            ]
-          }
-        }
-      }
+        fullName: "Имя 1",
+        nameProject: "Проект 1",
+        months: [
+          // 0 - январь
+          [
+            { number: 1, id: 1000 },
+            { number: 2, id: 1001 },
+            { number: 3, id: 1002 },
+            { number: 4, id: 1003 },
+            { number: 5, id: 1004 }
+          ],
+          // 1 - февраль
+          [
+            { number: 6, id: 1010 },
+            { number: 7, id: 1011 },
+            { number: 8, id: 1012 },
+            { number: 9, id: 1013 }
+          ],
+          // 2 - март
+          [
+            { number: 10, id: 1020 },
+            { number: 11, id: 1021 },
+            { number: 12, id: 1022 },
+            { number: 13, id: 1023 }
+          ],
+          // 3 - апрель
+          [
+            { number: 14, id: 1030 },
+            { number: 15, id: 1031 },
+            { number: 16, id: 1032 },
+            { number: 17, id: 1033 },
+            { number: 18, id: 1034 }
+          ],
+          // 4 - май
+          [
+            { number: 19, id: 1040 },
+            { number: 20, id: 1041 },
+            { number: 21, id: 1042 },
+            { number: 22, id: 1043 },
+          ],
+          // 5 - июнь
+          [
+            { number: 23, id: 1050 },
+            { number: 24, id: 1051 },
+            { number: 25, id: 1052 },
+            { number: 26, id: 1053 },
+          ],
+          // 6 - июль
+          [
+            { number: 27, id: 1060 },
+            { number: 28, id: 1061 },
+            { number: 29, id: 1062 },
+            { number: 30, id: 1063 },
+            { number: 31, id: 1064 }
+          ],
+          // 7 - август
+          [
+            { number: 32, id: 1070 },
+            { number: 33, id: 1071 },
+            { number: 34, id: 1072 },
+            { number: 35, id: 1073 },
+          ],
+          // 8 - сентябрь
+          [
+            { number: 36, id: 1080 },
+            { number: 37, id: 1081 },
+            { number: 38, id: 1082 },
+            { number: 39, id: 1083 },
+            { number: 40, id: 1084 }
+          ],
+          // 9 - октябрь
+          [
+            { number: 41, id: 1090 },
+            { number: 42, id: 1091 },
+            { number: 43, id: 1092 },
+            { number: 44, id: 1093 },
+          ],
+          // 10 - ноябрь
+          [
+            { number: 45, id: 1100 },
+            { number: 46, id: 1101 },
+            { number: 47, id: 1102 },
+            { number: 48, id: 1103 },
+          ],
+          // 11 - декабрь
+          [
+            { number: 49, id: 1200 },
+            { number: 50, id: 1201 },
+            { number: 51, id: 1202 },
+            { number: 52, id: 1203 },
+            { number: 53, id: 1203 },
+          ]
+        ]
+      },
     ],
     dataStatus: {
       statuses: [
@@ -159,6 +348,106 @@ class Table extends React.Component {
       index: dataRowsBody.length,
       fullName: "Имя",
       nameProject: "Проект",
+      months: [
+        // 0 - январь
+        [
+          { number: 1, id: 1000 },
+          { number: 2, id: 1001 },
+          { number: 3, id: 1002 },
+          { number: 4, id: 1003 },
+          { number: 5, id: 1004 }
+        ],
+        // 1 - февраль
+        [
+          { number: 6, id: 1010 },
+          { number: 7, id: 1011 },
+          { number: 8, id: 1012 },
+          { number: 9, id: 1013 }
+        ],
+        // 2 - март
+        [
+          { number: 10, id: 1020 },
+          { number: 11, id: 1021 },
+          { number: 12, id: 1022 },
+          { number: 13, id: 1023 }
+        ],
+        // 3 - апрель
+        [
+          { number: 14, id: 1030 },
+          { number: 15, id: 1031 },
+          { number: 16, id: 1032 },
+          { number: 17, id: 1033 },
+          { number: 18, id: 1034 }
+        ],
+        // 4 - май
+        [
+          { number: 19, id: 1040 },
+          { number: 20, id: 1041 },
+          { number: 21, id: 1042 },
+          { number: 22, id: 1043 },
+        ],
+        // 5 - июнь
+        [
+          { number: 23, id: 1050 },
+          { number: 24, id: 1051 },
+          { number: 25, id: 1052 },
+          { number: 26, id: 1053 },
+        ],
+        // 6 - июль
+        [
+          { number: 27, id: 1060 },
+          { number: 28, id: 1061 },
+          { number: 29, id: 1062 },
+          { number: 30, id: 1063 },
+          { number: 31, id: 1064 }
+        ],
+        // 7 - август
+        [
+          { number: 32, id: 1070 },
+          { number: 33, id: 1071 },
+          { number: 34, id: 1072 },
+          { number: 35, id: 1073 },
+        ],
+        // 8 - сентябрь
+        [
+          { number: 36, id: 1080 },
+          { number: 37, id: 1081 },
+          { number: 38, id: 1082 },
+          { number: 39, id: 1083 },
+          { number: 40, id: 1084 }
+        ],
+        // 9 - октябрь
+        [
+          { number: 41, id: 1090 },
+          { number: 42, id: 1091 },
+          { number: 43, id: 1092 },
+          { number: 44, id: 1093 },
+        ],
+        // 10 - ноябрь
+        [
+          { number: 45, id: 1100 },
+          { number: 46, id: 1101 },
+          { number: 47, id: 1102 },
+          { number: 48, id: 1103 },
+        ],
+        // 11 - декабрь
+        [
+          { number: 49, id: 1200 },
+          { number: 50, id: 1201 },
+          { number: 51, id: 1202 },
+          { number: 52, id: 1203 },
+          { number: 53, id: 1203 },
+        ]
+      ]
+    }
+    this.state.dataRowsBody.push(dataRowsBody);
+    this.setState(dataRowsBody);
+  }
+  addProject = () => {
+    let dataRowsBody = Object.assign(this.state.dataRowsBody)
+    dataRowsBody = {
+      index: dataRowsBody.length,
+      nameProject: "Проект",
       months: {
         Febrary: {
           hours: [
@@ -188,23 +477,19 @@ class Table extends React.Component {
       }
     }
     this.state.dataRowsBody.push(dataRowsBody);
+
+    // this.state.dataRowsBody.sort(function (a, b) {
+    //   if (a.index > b.index) {
+    //     return 1;
+    //   }
+    //   if (a.index < b.index) {
+    //     return -1;
+    //   }
+    //   return 0;
+    // });
+    // console.log(this.state.dataRowsBody);
     this.setState(dataRowsBody);
   }
-
-  // addStatus = () => {
-  //   let statuses = Object.assign(this.state.dataStatus.statuses)
-  //   let counter = this.state.dataStatus.counter + this.state.dataStatus.statuses.length;
-  //   let value = this.state.dataStatus.value;
-  //   statuses = { id: ++counter, text: value };
-  //   this.state.dataStatus.statuses.push(statuses);
-  //   // Не срабатывает присваивание пустому значению, не знаю почему
-  //   value = ' ';
-  //   this.setState(statuses);
-  // }
-
-
-
-
   // componentDidMount() {
     //   let state = this.state;
     //   localStorage.setItem('state', JSON.stringify(state));
@@ -311,43 +596,30 @@ class Table extends React.Component {
     this.setState({ dataRowsBody })
   }
 
-  // -----------------------  Обработчик редактирования часов в Феврале
-  handlerChangeMonthsFebraryHours = (id, event, index) => {
-    let item = this.state.dataRowsBody[index].months.Febrary.hours.findIndex(
+  // -----------------------  Обработчик редактирования часов в любом месяце
+  handlerChangeMonths = (id, event, month, index) => {
+    let item = this.state.dataRowsBody[index].months[month].findIndex(
       number => number.id === id
     );
     let hours = Object.assign(
-      this.state.dataRowsBody[index].months.Febrary.hours
-    );
-    hours[item].number = event.target.value;
-    this.setState({ hours });
-  };
-
-  // -----------------------  Обработчик редактирования часов в Марте
-  handlerChangeMonthsMarthHours = (id, event, index) => {
-    let item = this.state.dataRowsBody[index].months.Marth.hours.findIndex(
-      number => number.id === id
-    );
-    let hours = Object.assign(
-      this.state.dataRowsBody[index].months.Marth.hours
-    );
-    hours[item].number = event.target.value;
-    this.setState({ hours });
-  };
-  
-  // -----------------------  Обработчик редактирования часов в Апреле
-  handlerChangeMonthsAprilHours = (id, event, index) => {
-    let item = this.state.dataRowsBody[index].months.April.hours.findIndex(
-      number => number.id === id
-    );
-    let hours = Object.assign(
-      this.state.dataRowsBody[index].months.April.hours
+      this.state.dataRowsBody[index].months[month]
     );
     hours[item].number = event.target.value;
     this.setState({ hours });
   };
   
   render() {
+    
+    // let now = new Date()
+    let month_1 = this.now.getMonth()
+    let month_2 = this.now.getMonth() + 1
+    let month_3 = this.now.getMonth() + 2
+    let month_4 = this.now.getMonth() + 3
+    let weeks_1 = this.state.dataRowsHead.months[month_1].weeks
+    let weeks_2 = this.state.dataRowsHead.months[month_2].weeks
+    let weeks_3 = this.state.dataRowsHead.months[month_3].weeks
+    let weeks_4 = this.state.dataRowsHead.months[month_4].weeks
+    // я получаю число 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 10 || 11
     return (
       <table className={clases.table}>
         <thead className={clases.columnsGroup}>
@@ -355,46 +627,53 @@ class Table extends React.Component {
             <Col row={2} value={this.state.dataRowsHead.name} />
             <Col row={2} value={this.state.dataRowsHead.project} />
             <Col row={2} value={this.state.dataRowsHead.status} />
-            <Col col={4} value={this.state.dataRowsHead.months[0].name} />
-            <Col col={5} value={this.state.dataRowsHead.months[1].name} />
-            <Col col={4} value={this.state.dataRowsHead.months[2].name} />
-            <Col col={4} value={this.state.dataRowsHead.months[3].name} />
+            <Col col={weeks_1.length} value={this.state.dataRowsHead.months[month_1].name} />
+            <Col col={weeks_2.length} value={this.state.dataRowsHead.months[month_2].name} />
+            <Col col={weeks_3.length} value={this.state.dataRowsHead.months[month_3].name} />
+            <Col col={weeks_4.length} value={this.state.dataRowsHead.months[month_4].name} />
           </tr>
           <tr>
-            <td className={clases.week}>10</td>
-            <td className={clases.week}>11</td>
-            <td className={clases.week}>12</td>
-            <td className={clases.week}>13</td>
-
-            <td className={clases.week}>14</td>
-            <td className={clases.week}>15</td>
-            <td className={clases.week}>16</td>
-            <td className={clases.week}>17</td>
-            <td className={clases.week}>18</td>
-
-            <td className={clases.week}>19</td>
-            <td className={clases.week}>20</td>
-            <td className={clases.week}>21</td>
-            <td className={clases.week}>22</td>
-
-            <td className={clases.week}>23</td>
-            <td className={clases.week}>24</td>
-            <td className={clases.week}>25</td>
-            <td className={clases.week}>26</td>
+            {weeks_1.map((item) => (
+              <td className={clases.week}>
+                {item}
+              </td>
+            ))}
+            {weeks_2.map((item) => (
+              <td className={clases.week}>
+                {item}
+              </td>
+            ))}
+            {weeks_3.map((item) => (
+              <td className={clases.week}>
+                {item}
+              </td>
+            ))}
+            {weeks_4.map((item) => (
+              <td className={clases.week}>
+                {item}
+              </td>
+            ))}
           </tr>
         </thead>
         <tbody className={clases.workingHours}>
           {this.state.dataRowsBody.map(({index}) => (
             <Row
+              month_1={month_1}
+              month_2={month_2}
+              month_3={month_3}
+              month_4={month_4}
+
               dataRowsBody={this.state.dataRowsBody[index]}
               statuses={this.state.dataStatus.statuses}
               colors={this.state.dataColor.colors}
               handlerChangefullName={this.handlerChangefullName}
               handlerChangeNameProject={this.handlerChangeNameProject}
-              
-              handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
-              handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
-              handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
+              addProject={this.addProject}
+
+              handlerChangeMonths={this.handlerChangeMonths}
+              // handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
+              // handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
+              // handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
             />
           ))}
           

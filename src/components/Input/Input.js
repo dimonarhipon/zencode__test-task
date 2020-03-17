@@ -3,7 +3,7 @@ import clases from './Input.module.css'
 
 let Input = props => {
   let onChange = (event) => {
-    props.ChangeMonthsHours(props.id, event)
+    props.handlerChange(props.id, event, props.month)
   }
   return (
     <Fragment>

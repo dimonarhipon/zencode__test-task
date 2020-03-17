@@ -1,6 +1,5 @@
 import React from 'react'
 import Input from '../Input/Input'
-// import SelectStatus from '../SelectStatus/SelectStatus'
 import clases from './Row.module.css'
 
 let Row = props => {
@@ -10,27 +9,14 @@ let Row = props => {
   let ChangeNameProject = event => {
     props.handlerChangeNameProject(props.dataRowsBody.index, event)
   }
-  let ChangeMonthsFebraryHours = (id, event) => {
-    props.handlerChangeMonthsFebraryHours(
+  let handlerChange = (id, event, month) => {
+    props.handlerChangeMonths(
       id,
       event,
+      month,
       props.dataRowsBody.index
     );
     // ChangeHoursFebrary = (event) => props.ChangeMonthsFebraryHours(props.id, event)
-  };
-  let ChangeMonthsMarthHours = (id, event) => {
-    props.handlerChangeMonthsMarthHours(
-      id,
-      event,
-      props.dataRowsBody.index
-    );
-  };
-  let ChangeMonthsAprilHours = (id, event) => {
-    props.handlerChangeMonthsAprilHours(
-      id,
-      event,
-      props.dataRowsBody.index
-    );
   };
   return (
     <tr>
@@ -43,6 +29,7 @@ let Row = props => {
         <Input
           value={props.dataRowsBody.nameProject}
           ChangeName={ChangeNameProject} />
+        {/* <button onClick={props.addProject}>+</button> */}
       </td>
       <td className={clases.cellhours}>
         <select>
@@ -53,44 +40,63 @@ let Row = props => {
       </td>       
       {/* ------------------------ Цвет фона ---------------- */}
 
-      {/* 
-      <td>
+      
+      
+      {/* <td>
         <select>
           {props.colors.map(({color}) => (
-            <option>{color}</option>
+            <option style={{backgroundColor: color }}>
+              {color}
+            </option>
           ))}
         </select>
-      </td> */} 
-      {props.dataRowsBody.months.Febrary.hours.map(
+      </td>  */}
+      {props.dataRowsBody.months[props.month_1].map(
         ({ id, number }) => (
-          <td className={clases.cellhours} >
+          <td className={clases.cellhours} style={{backgroundColor: props.colors[1].color }}>
             <Input
+              month={props.month_1}
               key={id}
-              ChangeMonthsHours={ChangeMonthsFebraryHours}
+              handlerChange={handlerChange}
               value={number}
               id={id}
             />
           </td>
         )
       )}
-      {props.dataRowsBody.months.Marth.hours.map(
+      {props.dataRowsBody.months[props.month_2].map(
         ({ id, number }) => (
           <td className={clases.cellhours}>
             <Input
+              month={props.month_2}
               key={id}
-              ChangeMonthsHours={ChangeMonthsMarthHours}
+              handlerChange={handlerChange}
               value={number}
               id={id}
             />
           </td>
         )
       )}
-      {props.dataRowsBody.months.April.hours.map(
+      {props.dataRowsBody.months[props.month_3].map(
         ({ id, number }) => (
           <td className={clases.cellhours}>
             <Input
+              month={props.month_3}
               key={id}
-              ChangeMonthsHours={ChangeMonthsAprilHours}
+              handlerChange={handlerChange}
+              value={number}
+              id={id}
+            />
+          </td>
+        )
+      )}
+      {props.dataRowsBody.months[props.month_4].map(
+        ({ id, number }) => (
+          <td className={clases.cellhours}>
+            <Input
+              month={props.month_4}
+              key={id}
+              handlerChange={handlerChange}
               value={number}
               id={id}
             />
