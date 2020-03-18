@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '../Input/Input'
+import ChangeBg from '../ChangeBg/ChangeBg'
 import clases from './Row.module.css'
 
 let Row = props => {
@@ -52,8 +53,8 @@ let Row = props => {
         </select>
       </td>  */}
       {props.dataRowsBody.months[props.month_1].map(
-        ({ id, number }) => (
-          <td className={clases.cellhours} style={{backgroundColor: props.colors[1].color }}>
+        ({ id, number, background, show }) => (
+          <td className={clases.cellhours} style={{backgroundColor: background}}>
             <Input
               month={props.month_1}
               key={id}
@@ -61,12 +62,21 @@ let Row = props => {
               value={number}
               id={id}
             />
+            <ChangeBg 
+              id={id}
+              show={show}  
+              onShow={props.onShow}
+              month={props.month_1}
+              background={background} 
+              index={props.dataRowsBody.index}
+              handleChangeComplete={props.handleChangeComplete} 
+            />
           </td>
         )
       )}
       {props.dataRowsBody.months[props.month_2].map(
-        ({ id, number }) => (
-          <td className={clases.cellhours}>
+        ({ id, number, background, show }) => (
+          <td className={clases.cellhours} style={{backgroundColor: background}}>
             <Input
               month={props.month_2}
               key={id}
@@ -74,12 +84,21 @@ let Row = props => {
               value={number}
               id={id}
             />
+            <ChangeBg 
+              id={id}
+              show={show}  
+              onShow={props.onShow}
+              month={props.month_2}
+              background={background} 
+              index={props.dataRowsBody.index}
+              handleChangeComplete={props.handleChangeComplete} 
+            />
           </td>
         )
       )}
       {props.dataRowsBody.months[props.month_3].map(
-        ({ id, number }) => (
-          <td className={clases.cellhours}>
+        ({ id, number, background, show }) => (
+          <td className={clases.cellhours} style={{backgroundColor: background}}>
             <Input
               month={props.month_3}
               key={id}
@@ -87,18 +106,36 @@ let Row = props => {
               value={number}
               id={id}
             />
+            <ChangeBg 
+              id={id}
+              show={show}  
+              onShow={props.onShow}
+              month={props.month_3}
+              background={background} 
+              index={props.dataRowsBody.index}
+              handleChangeComplete={props.handleChangeComplete} 
+            />
           </td>
         )
       )}
       {props.dataRowsBody.months[props.month_4].map(
-        ({ id, number }) => (
-          <td className={clases.cellhours}>
+        ({ id, number, background, show }) => (
+          <td className={clases.cellhours} style={{backgroundColor: background}}>
             <Input
               month={props.month_4}
               key={id}
               handlerChange={handlerChange}
               value={number}
               id={id}
+            />
+            <ChangeBg 
+              id={id}
+              show={show}  
+              onShow={props.onShow}
+              month={props.month_4}
+              background={background} 
+              index={props.dataRowsBody.index}
+              handleChangeComplete={props.handleChangeComplete} 
             />
           </td>
         )

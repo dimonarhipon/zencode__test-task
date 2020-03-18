@@ -35,92 +35,92 @@ class Table extends React.Component {
         months: [
           // 0 - январь
           [
-            { number: 1, id: 1000 },
-            { number: 2, id: 1001 },
-            { number: 3, id: 1002 },
-            { number: 4, id: 1003 },
-            { number: 5, id: 1004 }
+            { number: 1, id: 1000, background: "#ffffff", show: false },
+            { number: 2, id: 1001, background: "#ffffff", show: false },
+            { number: 3, id: 1002, background: "#ffffff", show: false },
+            { number: 4, id: 1003, background: "#ffffff", show: false },
+            { number: 5, id: 1004, background: "#ffffff", show: false }
           ],
           // 1 - февраль
           [
-            { number: 6, id: 1010 },
-            { number: 7, id: 1011 },
-            { number: 8, id: 1012 },
-            { number: 9, id: 1013 }
+            { number: 6, id: 1010, background: "#ffffff", show: false },
+            { number: 7, id: 1011, background: "#ffffff", show: false },
+            { number: 8, id: 1012, background: "#ffffff", show: false },
+            { number: 9, id: 1013, background: "#ffffff", show: false }
           ],
           // 2 - март
           [
-            { number: 10, id: 1020 },
-            { number: 11, id: 1021 },
-            { number: 12, id: 1022 },
-            { number: 13, id: 1023 }
+            { number: 10, id: 1020, background: "#ffffff", show: false },
+            { number: 11, id: 1021, background: "#ffffff", show: false },
+            { number: 12, id: 1022, background: "#ffffff", show: false },
+            { number: 13, id: 1023, background: "#ffffff", show: false }
           ],
           // 3 - апрель
           [
-            { number: 14, id: 1030 },
-            { number: 15, id: 1031 },
-            { number: 16, id: 1032 },
-            { number: 17, id: 1033 },
-            { number: 18, id: 1034 }
+            { number: 14, id: 1030, background: "#ffffff", show: false },
+            { number: 15, id: 1031, background: "#ffffff", show: false },
+            { number: 16, id: 1032, background: "#ffffff", show: false },
+            { number: 17, id: 1033, background: "#ffffff", show: false },
+            { number: 18, id: 1034, background: "#ffffff", show: false }
           ],
           // 4 - май
           [
-            { number: 19, id: 1040 },
-            { number: 20, id: 1041 },
-            { number: 21, id: 1042 },
-            { number: 22, id: 1043 },
+            { number: 19, id: 1040, background: "#ffffff", show: false },
+            { number: 20, id: 1041, background: "#ffffff", show: false },
+            { number: 21, id: 1042, background: "#ffffff", show: false },
+            { number: 22, id: 1043, background: "#ffffff", show: false },
           ],
           // 5 - июнь
           [
-            { number: 23, id: 1050 },
-            { number: 24, id: 1051 },
-            { number: 25, id: 1052 },
-            { number: 26, id: 1053 },
+            { number: 23, id: 1050, background: "#ffffff", show: false },
+            { number: 24, id: 1051, background: "#ffffff", show: false },
+            { number: 25, id: 1052, background: "#ffffff", show: false },
+            { number: 26, id: 1053, background: "#ffffff", show: false },
           ],
           // 6 - июль
           [
-            { number: 27, id: 1060 },
-            { number: 28, id: 1061 },
-            { number: 29, id: 1062 },
-            { number: 30, id: 1063 },
-            { number: 31, id: 1064 }
+            { number: 27, id: 1060, background: "#ffffff", show: false },
+            { number: 28, id: 1061, background: "#ffffff", show: false },
+            { number: 29, id: 1062, background: "#ffffff", show: false },
+            { number: 30, id: 1063, background: "#ffffff", show: false },
+            { number: 31, id: 1064, background: "#ffffff", show: false }
           ],
           // 7 - август
           [
-            { number: 32, id: 1070 },
-            { number: 33, id: 1071 },
-            { number: 34, id: 1072 },
-            { number: 35, id: 1073 },
+            { number: 32, id: 1070, background: "#ffffff", show: false },
+            { number: 33, id: 1071, background: "#ffffff", show: false },
+            { number: 34, id: 1072, background: "#ffffff", show: false },
+            { number: 35, id: 1073, background: "#ffffff", show: false },
           ],
           // 8 - сентябрь
           [
-            { number: 36, id: 1080 },
-            { number: 37, id: 1081 },
-            { number: 38, id: 1082 },
-            { number: 39, id: 1083 },
-            { number: 40, id: 1084 }
+            { number: 36, id: 1080, background: "#ffffff", show: false },
+            { number: 37, id: 1081, background: "#ffffff", show: false },
+            { number: 38, id: 1082, background: "#ffffff", show: false },
+            { number: 39, id: 1083, background: "#ffffff", show: false },
+            { number: 40, id: 1084, background: "#ffffff", show: false }
           ],
           // 9 - октябрь
           [
-            { number: 41, id: 1090 },
-            { number: 42, id: 1091 },
-            { number: 43, id: 1092 },
-            { number: 44, id: 1093 },
+            { number: 41, id: 1090, background: "#ffffff", show: false },
+            { number: 42, id: 1091, background: "#ffffff", show: false },
+            { number: 43, id: 1092, background: "#ffffff", show: false },
+            { number: 44, id: 1093, background: "#ffffff", show: false },
           ],
           // 10 - ноябрь
           [
-            { number: 45, id: 1100 },
-            { number: 46, id: 1101 },
-            { number: 47, id: 1102 },
-            { number: 48, id: 1103 },
+            { number: 45, id: 1100, background: "#ffffff", show: false },
+            { number: 46, id: 1101, background: "#ffffff", show: false },
+            { number: 47, id: 1102, background: "#ffffff", show: false },
+            { number: 48, id: 1103, background: "#ffffff", show: false },
           ],
           // 11 - декабрь
           [
-            { number: 49, id: 1200 },
-            { number: 50, id: 1201 },
-            { number: 51, id: 1202 },
-            { number: 52, id: 1203 },
-            { number: 53, id: 1203 },
+            { number: 49, id: 1200, background: "#ffffff", show: false },
+            { number: 50, id: 1201, background: "#ffffff", show: false },
+            { number: 51, id: 1202, background: "#ffffff", show: false },
+            { number: 52, id: 1203, background: "#ffffff", show: false },
+            { number: 53, id: 1203, background: "#ffffff", show: false },
           ]
         ]
       },
@@ -131,92 +131,92 @@ class Table extends React.Component {
         months: [
           // 0 - январь
           [
-            { number: 1, id: 1000 },
-            { number: 2, id: 1001 },
-            { number: 3, id: 1002 },
-            { number: 4, id: 1003 },
-            { number: 5, id: 1004 }
+            { number: 1, id: 1000, background: "#ffffff", show: false },
+            { number: 2, id: 1001, background: "#ffffff", show: false },
+            { number: 3, id: 1002, background: "#ffffff", show: false },
+            { number: 4, id: 1003, background: "#ffffff", show: false },
+            { number: 5, id: 1004, background: "#ffffff", show: false }
           ],
           // 1 - февраль
           [
-            { number: 6, id: 1010 },
-            { number: 7, id: 1011 },
-            { number: 8, id: 1012 },
-            { number: 9, id: 1013 }
+            { number: 6, id: 1010, background: "#ffffff", show: false },
+            { number: 7, id: 1011, background: "#ffffff", show: false },
+            { number: 8, id: 1012, background: "#ffffff", show: false },
+            { number: 9, id: 1013, background: "#ffffff", show: false }
           ],
           // 2 - март
           [
-            { number: 10, id: 1020 },
-            { number: 11, id: 1021 },
-            { number: 12, id: 1022 },
-            { number: 13, id: 1023 }
+            { number: 10, id: 1020, background: "#ffffff", show: false },
+            { number: 11, id: 1021, background: "#ffffff", show: false },
+            { number: 12, id: 1022, background: "#ffffff", show: false },
+            { number: 13, id: 1023, background: "#ffffff", show: false }
           ],
           // 3 - апрель
           [
-            { number: 14, id: 1030 },
-            { number: 15, id: 1031 },
-            { number: 16, id: 1032 },
-            { number: 17, id: 1033 },
-            { number: 18, id: 1034 }
+            { number: 14, id: 1030, background: "#ffffff", show: false },
+            { number: 15, id: 1031, background: "#ffffff", show: false },
+            { number: 16, id: 1032, background: "#ffffff", show: false },
+            { number: 17, id: 1033, background: "#ffffff", show: false },
+            { number: 18, id: 1034, background: "#ffffff", show: false }
           ],
           // 4 - май
           [
-            { number: 19, id: 1040 },
-            { number: 20, id: 1041 },
-            { number: 21, id: 1042 },
-            { number: 22, id: 1043 },
+            { number: 19, id: 1040, background: "#ffffff", show: false },
+            { number: 20, id: 1041, background: "#ffffff", show: false },
+            { number: 21, id: 1042, background: "#ffffff", show: false },
+            { number: 22, id: 1043, background: "#ffffff", show: false },
           ],
           // 5 - июнь
           [
-            { number: 23, id: 1050 },
-            { number: 24, id: 1051 },
-            { number: 25, id: 1052 },
-            { number: 26, id: 1053 },
+            { number: 23, id: 1050, background: "#ffffff", show: false },
+            { number: 24, id: 1051, background: "#ffffff", show: false },
+            { number: 25, id: 1052, background: "#ffffff", show: false },
+            { number: 26, id: 1053, background: "#ffffff", show: false },
           ],
           // 6 - июль
           [
-            { number: 27, id: 1060 },
-            { number: 28, id: 1061 },
-            { number: 29, id: 1062 },
-            { number: 30, id: 1063 },
-            { number: 31, id: 1064 }
+            { number: 27, id: 1060, background: "#ffffff", show: false },
+            { number: 28, id: 1061, background: "#ffffff", show: false },
+            { number: 29, id: 1062, background: "#ffffff", show: false },
+            { number: 30, id: 1063, background: "#ffffff", show: false },
+            { number: 31, id: 1064, background: "#ffffff", show: false }
           ],
           // 7 - август
           [
-            { number: 32, id: 1070 },
-            { number: 33, id: 1071 },
-            { number: 34, id: 1072 },
-            { number: 35, id: 1073 },
+            { number: 32, id: 1070, background: "#ffffff", show: false },
+            { number: 33, id: 1071, background: "#ffffff", show: false },
+            { number: 34, id: 1072, background: "#ffffff", show: false },
+            { number: 35, id: 1073, background: "#ffffff", show: false },
           ],
           // 8 - сентябрь
           [
-            { number: 36, id: 1080 },
-            { number: 37, id: 1081 },
-            { number: 38, id: 1082 },
-            { number: 39, id: 1083 },
-            { number: 40, id: 1084 }
+            { number: 36, id: 1080, background: "#ffffff", show: false },
+            { number: 37, id: 1081, background: "#ffffff", show: false },
+            { number: 38, id: 1082, background: "#ffffff", show: false },
+            { number: 39, id: 1083, background: "#ffffff", show: false },
+            { number: 40, id: 1084, background: "#ffffff", show: false }
           ],
           // 9 - октябрь
           [
-            { number: 41, id: 1090 },
-            { number: 42, id: 1091 },
-            { number: 43, id: 1092 },
-            { number: 44, id: 1093 },
+            { number: 41, id: 1090, background: "#ffffff", show: false },
+            { number: 42, id: 1091, background: "#ffffff", show: false },
+            { number: 43, id: 1092, background: "#ffffff", show: false },
+            { number: 44, id: 1093, background: "#ffffff", show: false },
           ],
           // 10 - ноябрь
           [
-            { number: 45, id: 1100 },
-            { number: 46, id: 1101 },
-            { number: 47, id: 1102 },
-            { number: 48, id: 1103 },
+            { number: 45, id: 1100, background: "#ffffff", show: false },
+            { number: 46, id: 1101, background: "#ffffff", show: false },
+            { number: 47, id: 1102, background: "#ffffff", show: false },
+            { number: 48, id: 1103, background: "#ffffff", show: false },
           ],
           // 11 - декабрь
           [
-            { number: 49, id: 1200 },
-            { number: 50, id: 1201 },
-            { number: 51, id: 1202 },
-            { number: 52, id: 1203 },
-            { number: 53, id: 1203 },
+            { number: 49, id: 1200, background: "#ffffff", show: false },
+            { number: 50, id: 1201, background: "#ffffff", show: false },
+            { number: 51, id: 1202, background: "#ffffff", show: false },
+            { number: 52, id: 1203, background: "#ffffff", show: false },
+            { number: 53, id: 1203, background: "#ffffff", show: false },
           ]
         ]
       },
@@ -227,92 +227,92 @@ class Table extends React.Component {
         months: [
           // 0 - январь
           [
-            { number: 1, id: 1000 },
-            { number: 2, id: 1001 },
-            { number: 3, id: 1002 },
-            { number: 4, id: 1003 },
-            { number: 5, id: 1004 }
+            { number: 1, id: 1000, background: "#ffffff", show: false },
+            { number: 2, id: 1001, background: "#ffffff", show: false },
+            { number: 3, id: 1002, background: "#ffffff", show: false },
+            { number: 4, id: 1003, background: "#ffffff", show: false },
+            { number: 5, id: 1004, background: "#ffffff", show: false }
           ],
           // 1 - февраль
           [
-            { number: 6, id: 1010 },
-            { number: 7, id: 1011 },
-            { number: 8, id: 1012 },
-            { number: 9, id: 1013 }
+            { number: 6, id: 1010, background: "#ffffff", show: false },
+            { number: 7, id: 1011, background: "#ffffff", show: false },
+            { number: 8, id: 1012, background: "#ffffff", show: false },
+            { number: 9, id: 1013, background: "#ffffff", show: false }
           ],
           // 2 - март
           [
-            { number: 10, id: 1020 },
-            { number: 11, id: 1021 },
-            { number: 12, id: 1022 },
-            { number: 13, id: 1023 }
+            { number: 10, id: 1020, background: "#ffffff", show: false },
+            { number: 11, id: 1021, background: "#ffffff", show: false },
+            { number: 12, id: 1022, background: "#ffffff", show: false },
+            { number: 13, id: 1023, background: "#ffffff", show: false }
           ],
           // 3 - апрель
           [
-            { number: 14, id: 1030 },
-            { number: 15, id: 1031 },
-            { number: 16, id: 1032 },
-            { number: 17, id: 1033 },
-            { number: 18, id: 1034 }
+            { number: 14, id: 1030, background: "#ffffff", show: false },
+            { number: 15, id: 1031, background: "#ffffff", show: false },
+            { number: 16, id: 1032, background: "#ffffff", show: false },
+            { number: 17, id: 1033, background: "#ffffff", show: false },
+            { number: 18, id: 1034, background: "#ffffff", show: false }
           ],
           // 4 - май
           [
-            { number: 19, id: 1040 },
-            { number: 20, id: 1041 },
-            { number: 21, id: 1042 },
-            { number: 22, id: 1043 },
+            { number: 19, id: 1040, background: "#ffffff", show: false },
+            { number: 20, id: 1041, background: "#ffffff", show: false },
+            { number: 21, id: 1042, background: "#ffffff", show: false },
+            { number: 22, id: 1043, background: "#ffffff", show: false },
           ],
           // 5 - июнь
           [
-            { number: 23, id: 1050 },
-            { number: 24, id: 1051 },
-            { number: 25, id: 1052 },
-            { number: 26, id: 1053 },
+            { number: 23, id: 1050, background: "#ffffff", show: false },
+            { number: 24, id: 1051, background: "#ffffff", show: false },
+            { number: 25, id: 1052, background: "#ffffff", show: false },
+            { number: 26, id: 1053, background: "#ffffff", show: false },
           ],
           // 6 - июль
           [
-            { number: 27, id: 1060 },
-            { number: 28, id: 1061 },
-            { number: 29, id: 1062 },
-            { number: 30, id: 1063 },
-            { number: 31, id: 1064 }
+            { number: 27, id: 1060, background: "#ffffff", show: false },
+            { number: 28, id: 1061, background: "#ffffff", show: false },
+            { number: 29, id: 1062, background: "#ffffff", show: false },
+            { number: 30, id: 1063, background: "#ffffff", show: false },
+            { number: 31, id: 1064, background: "#ffffff", show: false }
           ],
           // 7 - август
           [
-            { number: 32, id: 1070 },
-            { number: 33, id: 1071 },
-            { number: 34, id: 1072 },
-            { number: 35, id: 1073 },
+            { number: 32, id: 1070, background: "#ffffff", show: false },
+            { number: 33, id: 1071, background: "#ffffff", show: false },
+            { number: 34, id: 1072, background: "#ffffff", show: false },
+            { number: 35, id: 1073, background: "#ffffff", show: false },
           ],
           // 8 - сентябрь
           [
-            { number: 36, id: 1080 },
-            { number: 37, id: 1081 },
-            { number: 38, id: 1082 },
-            { number: 39, id: 1083 },
-            { number: 40, id: 1084 }
+            { number: 36, id: 1080, background: "#ffffff", show: false },
+            { number: 37, id: 1081, background: "#ffffff", show: false },
+            { number: 38, id: 1082, background: "#ffffff", show: false },
+            { number: 39, id: 1083, background: "#ffffff", show: false },
+            { number: 40, id: 1084, background: "#ffffff", show: false }
           ],
           // 9 - октябрь
           [
-            { number: 41, id: 1090 },
-            { number: 42, id: 1091 },
-            { number: 43, id: 1092 },
-            { number: 44, id: 1093 },
+            { number: 41, id: 1090, background: "#ffffff", show: false },
+            { number: 42, id: 1091, background: "#ffffff", show: false },
+            { number: 43, id: 1092, background: "#ffffff", show: false },
+            { number: 44, id: 1093, background: "#ffffff", show: false },
           ],
           // 10 - ноябрь
           [
-            { number: 45, id: 1100 },
-            { number: 46, id: 1101 },
-            { number: 47, id: 1102 },
-            { number: 48, id: 1103 },
+            { number: 45, id: 1100, background: "#ffffff", show: false },
+            { number: 46, id: 1101, background: "#ffffff", show: false },
+            { number: 47, id: 1102, background: "#ffffff", show: false },
+            { number: 48, id: 1103, background: "#ffffff", show: false },
           ],
           // 11 - декабрь
           [
-            { number: 49, id: 1200 },
-            { number: 50, id: 1201 },
-            { number: 51, id: 1202 },
-            { number: 52, id: 1203 },
-            { number: 53, id: 1203 },
+            { number: 49, id: 1200, background: "#ffffff", show: false },
+            { number: 50, id: 1201, background: "#ffffff", show: false },
+            { number: 51, id: 1202, background: "#ffffff", show: false },
+            { number: 52, id: 1203, background: "#ffffff", show: false },
+            { number: 53, id: 1203, background: "#ffffff", show: false },
           ]
         ]
       },
@@ -351,92 +351,92 @@ class Table extends React.Component {
       months: [
         // 0 - январь
         [
-          { number: 1, id: 1000 },
-          { number: 2, id: 1001 },
-          { number: 3, id: 1002 },
-          { number: 4, id: 1003 },
-          { number: 5, id: 1004 }
+          { number: 1, id: 1000, background: "#ffffff", show: false },
+          { number: 2, id: 1001, background: "#ffffff", show: false },
+          { number: 3, id: 1002, background: "#ffffff", show: false },
+          { number: 4, id: 1003, background: "#ffffff", show: false },
+          { number: 5, id: 1004, background: "#ffffff", show: false }
         ],
         // 1 - февраль
         [
-          { number: 6, id: 1010 },
-          { number: 7, id: 1011 },
-          { number: 8, id: 1012 },
-          { number: 9, id: 1013 }
+          { number: 6, id: 1010, background: "#ffffff", show: false },
+          { number: 7, id: 1011, background: "#ffffff", show: false },
+          { number: 8, id: 1012, background: "#ffffff", show: false },
+          { number: 9, id: 1013, background: "#ffffff", show: false }
         ],
         // 2 - март
         [
-          { number: 10, id: 1020 },
-          { number: 11, id: 1021 },
-          { number: 12, id: 1022 },
-          { number: 13, id: 1023 }
+          { number: 10, id: 1020, background: "#ffffff", show: false },
+          { number: 11, id: 1021, background: "#ffffff", show: false },
+          { number: 12, id: 1022, background: "#ffffff", show: false },
+          { number: 13, id: 1023, background: "#ffffff", show: false }
         ],
         // 3 - апрель
         [
-          { number: 14, id: 1030 },
-          { number: 15, id: 1031 },
-          { number: 16, id: 1032 },
-          { number: 17, id: 1033 },
-          { number: 18, id: 1034 }
+          { number: 14, id: 1030, background: "#ffffff", show: false },
+          { number: 15, id: 1031, background: "#ffffff", show: false },
+          { number: 16, id: 1032, background: "#ffffff", show: false },
+          { number: 17, id: 1033, background: "#ffffff", show: false },
+          { number: 18, id: 1034, background: "#ffffff", show: false }
         ],
         // 4 - май
         [
-          { number: 19, id: 1040 },
-          { number: 20, id: 1041 },
-          { number: 21, id: 1042 },
-          { number: 22, id: 1043 },
+          { number: 19, id: 1040, background: "#ffffff", show: false },
+          { number: 20, id: 1041, background: "#ffffff", show: false },
+          { number: 21, id: 1042, background: "#ffffff", show: false },
+          { number: 22, id: 1043, background: "#ffffff", show: false },
         ],
         // 5 - июнь
         [
-          { number: 23, id: 1050 },
-          { number: 24, id: 1051 },
-          { number: 25, id: 1052 },
-          { number: 26, id: 1053 },
+          { number: 23, id: 1050, background: "#ffffff", show: false },
+          { number: 24, id: 1051, background: "#ffffff", show: false },
+          { number: 25, id: 1052, background: "#ffffff", show: false },
+          { number: 26, id: 1053, background: "#ffffff", show: false },
         ],
         // 6 - июль
         [
-          { number: 27, id: 1060 },
-          { number: 28, id: 1061 },
-          { number: 29, id: 1062 },
-          { number: 30, id: 1063 },
-          { number: 31, id: 1064 }
+          { number: 27, id: 1060, background: "#ffffff", show: false },
+          { number: 28, id: 1061, background: "#ffffff", show: false },
+          { number: 29, id: 1062, background: "#ffffff", show: false },
+          { number: 30, id: 1063, background: "#ffffff", show: false },
+          { number: 31, id: 1064, background: "#ffffff", show: false }
         ],
         // 7 - август
         [
-          { number: 32, id: 1070 },
-          { number: 33, id: 1071 },
-          { number: 34, id: 1072 },
-          { number: 35, id: 1073 },
+          { number: 32, id: 1070, background: "#ffffff", show: false },
+          { number: 33, id: 1071, background: "#ffffff", show: false },
+          { number: 34, id: 1072, background: "#ffffff", show: false },
+          { number: 35, id: 1073, background: "#ffffff", show: false },
         ],
         // 8 - сентябрь
         [
-          { number: 36, id: 1080 },
-          { number: 37, id: 1081 },
-          { number: 38, id: 1082 },
-          { number: 39, id: 1083 },
-          { number: 40, id: 1084 }
+          { number: 36, id: 1080, background: "#ffffff", show: false },
+          { number: 37, id: 1081, background: "#ffffff", show: false },
+          { number: 38, id: 1082, background: "#ffffff", show: false },
+          { number: 39, id: 1083, background: "#ffffff", show: false },
+          { number: 40, id: 1084, background: "#ffffff", show: false }
         ],
         // 9 - октябрь
         [
-          { number: 41, id: 1090 },
-          { number: 42, id: 1091 },
-          { number: 43, id: 1092 },
-          { number: 44, id: 1093 },
+          { number: 41, id: 1090, background: "#ffffff", show: false },
+          { number: 42, id: 1091, background: "#ffffff", show: false },
+          { number: 43, id: 1092, background: "#ffffff", show: false },
+          { number: 44, id: 1093, background: "#ffffff", show: false },
         ],
         // 10 - ноябрь
         [
-          { number: 45, id: 1100 },
-          { number: 46, id: 1101 },
-          { number: 47, id: 1102 },
-          { number: 48, id: 1103 },
+          { number: 45, id: 1100, background: "#ffffff", show: false },
+          { number: 46, id: 1101, background: "#ffffff", show: false },
+          { number: 47, id: 1102, background: "#ffffff", show: false },
+          { number: 48, id: 1103, background: "#ffffff", show: false },
         ],
         // 11 - декабрь
         [
-          { number: 49, id: 1200 },
-          { number: 50, id: 1201 },
-          { number: 51, id: 1202 },
-          { number: 52, id: 1203 },
-          { number: 53, id: 1203 },
+          { number: 49, id: 1200, background: "#ffffff", show: false },
+          { number: 50, id: 1201, background: "#ffffff", show: false },
+          { number: 51, id: 1202, background: "#ffffff", show: false },
+          { number: 52, id: 1203, background: "#ffffff", show: false },
+          { number: 53, id: 1203, background: "#ffffff", show: false },
         ]
       ]
     }
@@ -607,7 +607,27 @@ class Table extends React.Component {
     hours[item].number = event.target.value;
     this.setState({ hours });
   };
-  
+  handleChangeComplete = (color, id, month, index) => {
+    let item = this.state.dataRowsBody[index].months[month].findIndex(
+      number => number.id === id
+    );
+    let hours = Object.assign(
+      this.state.dataRowsBody[index].months[month]
+    );
+    hours[item].background = color.hex;
+    this.setState({ hours });
+  }
+  onShow = (id, month, index) => { 
+    let item = this.state.dataRowsBody[index].months[month].findIndex(
+      number => number.id === id
+    );
+    let hours = Object.assign(
+      this.state.dataRowsBody[index].months[month]
+    );
+    let show = hours[item].show
+    hours[item].show = !show 
+    this.setState({ hours });
+  };
   render() {
     
     // let now = new Date()
@@ -671,9 +691,8 @@ class Table extends React.Component {
               addProject={this.addProject}
 
               handlerChangeMonths={this.handlerChangeMonths}
-              // handlerChangeMonthsFebraryHours={this.handlerChangeMonthsFebraryHours}
-              // handlerChangeMonthsMarthHours={this.handlerChangeMonthsMarthHours}
-              // handlerChangeMonthsAprilHours={this.handlerChangeMonthsAprilHours}
+              handleChangeComplete={this.handleChangeComplete}
+              onShow={this.onShow}
             />
           ))}
           

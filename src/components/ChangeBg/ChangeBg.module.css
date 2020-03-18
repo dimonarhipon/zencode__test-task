@@ -1,0 +1,12 @@
+.color {
+  position: absolute;
+  top: 53px;
+  z-index: 1;
+}
+.fill {
+  position: relative;
+  left: 23px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
