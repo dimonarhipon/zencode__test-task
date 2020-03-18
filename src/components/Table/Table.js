@@ -490,36 +490,6 @@ class Table extends React.Component {
     // console.log(this.state.dataRowsBody);
     this.setState(dataRowsBody);
   }
-  // componentDidMount() {
-    //   let state = this.state;
-    //   localStorage.setItem('state', JSON.stringify(state));
-    //   this.setState(state);
-    // state = JSON.parse(localStorage.getItem('state'));
-
-    // localStorage.setItem('RowsHead', JSON.stringify(dataRowsHead));
-    // localStorage.setItem('RowsBody', JSON.stringify(dataRowsBody));
-    // localStorage.setItem('Status', JSON.stringify(dataStatus));
-    // localStorage.setItem('Color', JSON.stringify(dataColor));
-    // localStorage.setItem('showModalStatus', JSON.stringify(showModalStatus));
-    // localStorage.setItem('showModalColor', JSON.stringify(showModalColor));
-
-
-    
-    // let dataRowsHead = JSON.parse(localStorage.getItem("RowsHead"));
-    // let dataRowsBody = JSON.parse(localStorage.getItem("RowsBody"));
-    // let dataStatus = JSON.parse(localStorage.getItem("Status"));
-    // let dataColor = JSON.parse(localStorage.getItem('Color'));
-    // let showModalStatus = JSON.parse(localStorage.getItem('showModalStatus'));
-    // let showModalColor = JSON.parse(localStorage.getItem('showModalColor'));
-    
-    // this.setState(state);
-  // };
-  
-  // componentDidUpdate() {
-  //   let state = JSON.parse(localStorage.getItem("state"));
-  //   this.setState(state);
-  // }
-
 
   // --------------------------- Обработчики редактирования Статуса 
   addStatus = () => {
@@ -628,9 +598,16 @@ class Table extends React.Component {
     hours[item].show = !show 
     this.setState({ hours });
   };
+  componentDidUpdate() {
+    const state = JSON.stringify(this.state);
+    localStorage.setItem("user", state);
+  };
+  componentDidMount() {
+    let state = Object.assign(this.state);
+    state = JSON.parse(localStorage.getItem("user"));
+    this.setState(state);
+  }
   render() {
-    
-    // let now = new Date()
     let month_1 = this.now.getMonth()
     let month_2 = this.now.getMonth() + 1
     let month_3 = this.now.getMonth() + 2
@@ -695,8 +672,7 @@ class Table extends React.Component {
               onShow={this.onShow}
             />
           ))}
-          
-          <Button onClick={this.addDeveloper} value={"Добавить"} />
+          <Button onClick={this.addDeveloper} value={"Добавить разработчика"} />
         </tbody>
         <div className={clases.modalStatus}>
           {this.state.showModalStatus ? 
