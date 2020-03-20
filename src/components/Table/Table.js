@@ -6,7 +6,6 @@ import Modal from '../Modal/Modal'
 import Button from '../Button/Button'
 
 class Table extends React.Component {
-  now = new Date()
   state = {
     dataRowsHead: {
       name: 'Фамилия Имя',
@@ -447,34 +446,99 @@ class Table extends React.Component {
     let dataRowsBody = Object.assign(this.state.dataRowsBody)
     dataRowsBody = {
       index: dataRowsBody.length,
+      // fullName: "Имя",
       nameProject: "Проект",
-      months: {
-        Febrary: {
-          hours: [
-            { number: 1, id: 4000 },
-            { number: 2, id: 4001 },
-            { number: 3, id: 4002 },
-            { number: 4, id: 4003 }
-          ]
-        },
-        Marth: {
-          hours: [
-            { number: 5, id: 4100 },
-            { number: 6, id: 4101 },
-            { number: 7, id: 4102 },
-            { number: 8, id: 4103 }
-          ]
-        },
-        April: {
-          hours: [
-            { number: 9, id: 4200 },
-            { number: 10, id: 4201 },
-            { number: 11, id: 4202 },
-            { number: 12, id: 4203 },
-            { number: 13, id: 4204 }
-          ]
-        }
-      }
+      months: [
+        // 0 - январь
+        [
+          { number: 1, id: 1000, background: "#ffffff", show: false },
+          { number: 2, id: 1001, background: "#ffffff", show: false },
+          { number: 3, id: 1002, background: "#ffffff", show: false },
+          { number: 4, id: 1003, background: "#ffffff", show: false },
+          { number: 5, id: 1004, background: "#ffffff", show: false }
+        ],
+        // 1 - февраль
+        [
+          { number: 6, id: 1010, background: "#ffffff", show: false },
+          { number: 7, id: 1011, background: "#ffffff", show: false },
+          { number: 8, id: 1012, background: "#ffffff", show: false },
+          { number: 9, id: 1013, background: "#ffffff", show: false }
+        ],
+        // 2 - март
+        [
+          { number: 10, id: 1020, background: "#ffffff", show: false },
+          { number: 11, id: 1021, background: "#ffffff", show: false },
+          { number: 12, id: 1022, background: "#ffffff", show: false },
+          { number: 13, id: 1023, background: "#ffffff", show: false }
+        ],
+        // 3 - апрель
+        [
+          { number: 14, id: 1030, background: "#ffffff", show: false },
+          { number: 15, id: 1031, background: "#ffffff", show: false },
+          { number: 16, id: 1032, background: "#ffffff", show: false },
+          { number: 17, id: 1033, background: "#ffffff", show: false },
+          { number: 18, id: 1034, background: "#ffffff", show: false }
+        ],
+        // 4 - май
+        [
+          { number: 19, id: 1040, background: "#ffffff", show: false },
+          { number: 20, id: 1041, background: "#ffffff", show: false },
+          { number: 21, id: 1042, background: "#ffffff", show: false },
+          { number: 22, id: 1043, background: "#ffffff", show: false },
+        ],
+        // 5 - июнь
+        [
+          { number: 23, id: 1050, background: "#ffffff", show: false },
+          { number: 24, id: 1051, background: "#ffffff", show: false },
+          { number: 25, id: 1052, background: "#ffffff", show: false },
+          { number: 26, id: 1053, background: "#ffffff", show: false },
+        ],
+        // 6 - июль
+        [
+          { number: 27, id: 1060, background: "#ffffff", show: false },
+          { number: 28, id: 1061, background: "#ffffff", show: false },
+          { number: 29, id: 1062, background: "#ffffff", show: false },
+          { number: 30, id: 1063, background: "#ffffff", show: false },
+          { number: 31, id: 1064, background: "#ffffff", show: false }
+        ],
+        // 7 - август
+        [
+          { number: 32, id: 1070, background: "#ffffff", show: false },
+          { number: 33, id: 1071, background: "#ffffff", show: false },
+          { number: 34, id: 1072, background: "#ffffff", show: false },
+          { number: 35, id: 1073, background: "#ffffff", show: false },
+        ],
+        // 8 - сентябрь
+        [
+          { number: 36, id: 1080, background: "#ffffff", show: false },
+          { number: 37, id: 1081, background: "#ffffff", show: false },
+          { number: 38, id: 1082, background: "#ffffff", show: false },
+          { number: 39, id: 1083, background: "#ffffff", show: false },
+          { number: 40, id: 1084, background: "#ffffff", show: false }
+        ],
+        // 9 - октябрь
+        [
+          { number: 41, id: 1090, background: "#ffffff", show: false },
+          { number: 42, id: 1091, background: "#ffffff", show: false },
+          { number: 43, id: 1092, background: "#ffffff", show: false },
+          { number: 44, id: 1093, background: "#ffffff", show: false },
+        ],
+        // 10 - ноябрь
+        [
+          { number: 45, id: 1100, background: "#ffffff", show: false },
+          { number: 46, id: 1101, background: "#ffffff", show: false },
+          { number: 47, id: 1102, background: "#ffffff", show: false },
+          { number: 48, id: 1103, background: "#ffffff", show: false },
+        ],
+        // 11 - декабрь
+        [
+          { number: 49, id: 1200, background: "#ffffff", show: false },
+          { number: 50, id: 1201, background: "#ffffff", show: false },
+          { number: 51, id: 1202, background: "#ffffff", show: false },
+          { number: 52, id: 1203, background: "#ffffff", show: false },
+          { number: 53, id: 1203, background: "#ffffff", show: false },
+        ]
+      ]
     }
     this.state.dataRowsBody.push(dataRowsBody);
 
@@ -577,6 +641,7 @@ class Table extends React.Component {
     hours[item].number = event.target.value;
     this.setState({ hours });
   };
+  //  --------------------- Обработчик заливки фона ячейки
   handleChangeComplete = (color, id, month, index) => {
     let item = this.state.dataRowsBody[index].months[month].findIndex(
       number => number.id === id
@@ -587,6 +652,7 @@ class Table extends React.Component {
     hours[item].background = color.hex;
     this.setState({ hours });
   }
+  //  --------------------- Обработчик открытия окна заливки фона ячейки
   onShow = (id, month, index) => { 
     let item = this.state.dataRowsBody[index].months[month].findIndex(
       number => number.id === id
@@ -607,6 +673,7 @@ class Table extends React.Component {
     state = JSON.parse(localStorage.getItem("user"));
     this.setState(state);
   }
+  now = new Date()
   render() {
     let month_1 = this.now.getMonth()
     let month_2 = this.now.getMonth() + 1
@@ -672,7 +739,7 @@ class Table extends React.Component {
               onShow={this.onShow}
             />
           ))}
-          <Button onClick={this.addDeveloper} value={"Добавить разработчика"} />
+          <Button onClick={this.addDeveloper} children={"Добавить разработчика"} />
         </tbody>
         <div className={clases.modalStatus}>
           {this.state.showModalStatus ? 
@@ -700,33 +767,10 @@ class Table extends React.Component {
               input={this.state.dataColor.input}
               /> : null}
         </div>
-        <Button onClick={this.showModalStatus} value={"Редактировать статус"}/>
-        <Button onClick={this.showModalColor} value={"Редактировать цвет"}/> 
+        <Button onClick={this.showModalStatus} children={"Редактировать статус"}/>
+        <Button onClick={this.showModalColor} children={"Редактировать цвет"}/> 
       </table>
     )
   }
 }
 export default Table
-
-
-
-
-// handlerChangefullName = (event) => {
-  //   this.setState(state => {
-  //     let dataRowsBody = [...state.dataRowsBody];
-  //     dataRowsBody = {fullName: event.target.value, ...dataRowsBody}
-  //     return
-  //   })
-  // }
-  // this.setState(prevState => ({
-  //   dataRowsBody: {
-  //       ...prevState.dataRowsBody,
-  //       [prevState.dataRowsBody[1].fullName]: event.target.value,
-  //     },
-  // }));
-  // this.setState(prevState => {
-  //   const newDataRowsBody = [...prevState.state.dataRowsBody];
-  //   newDataRowsBody[0].fullName = event.target.value;
-  //   return {items: newDataRowsBody};
-  // })
-

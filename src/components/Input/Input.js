@@ -1,22 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import clases from './Input.module.css'
 
 let Input = props => {
-  let onChange = (event) => {
-    props.handlerChange(props.id, event, props.month)
-  }
-  return (
-    <Fragment>
-      <input
-        className={clases.editable}
-        placeholder={1}
-        onChange={
-          props.ChangeName ||
-          onChange 
-        }
-        value={props.value}
-      />
-    </Fragment>
-  )
+  return <input className={clases.editable} {...props} />
 }
 export default Input
