@@ -675,14 +675,10 @@ class Table extends React.Component {
   }
   now = new Date()
   render() {
-    let month_1 = this.now.getMonth()
-    let month_2 = this.now.getMonth() + 1
-    let month_3 = this.now.getMonth() + 2
-    let month_4 = this.now.getMonth() + 3
-    let weeks_1 = this.state.dataRowsHead.months[month_1].weeks
-    let weeks_2 = this.state.dataRowsHead.months[month_2].weeks
-    let weeks_3 = this.state.dataRowsHead.months[month_3].weeks
-    let weeks_4 = this.state.dataRowsHead.months[month_4].weeks
+    let month = [];
+    for (let i = 0; i < 4; i++) {
+      month.push(this.now.getMonth() + i);
+    }
     // я получаю число 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 10 || 11
     return (
       <table className={clases.table}>
@@ -691,41 +687,27 @@ class Table extends React.Component {
             <Col row={2} value={this.state.dataRowsHead.name} />
             <Col row={2} value={this.state.dataRowsHead.project} />
             <Col row={2} value={this.state.dataRowsHead.status} />
-            <Col col={weeks_1.length} value={this.state.dataRowsHead.months[month_1].name} />
-            <Col col={weeks_2.length} value={this.state.dataRowsHead.months[month_2].name} />
-            <Col col={weeks_3.length} value={this.state.dataRowsHead.months[month_3].name} />
-            <Col col={weeks_4.length} value={this.state.dataRowsHead.months[month_4].name} />
+            {month.map(item => (
+              <Col 
+                col={this.state.dataRowsHead.months[item].weeks.length} 
+                value={this.state.dataRowsHead.months[item].name} 
+              />
+            ))}
           </tr>
           <tr>
-            {weeks_1.map((item) => (
-              <td className={clases.week}>
-                {item}
-              </td>
-            ))}
-            {weeks_2.map((item) => (
-              <td className={clases.week}>
-                {item}
-              </td>
-            ))}
-            {weeks_3.map((item) => (
-              <td className={clases.week}>
-                {item}
-              </td>
-            ))}
-            {weeks_4.map((item) => (
-              <td className={clases.week}>
-                {item}
-              </td>
+            {month.map((element, index) => (
+              this.state.dataRowsHead.months[month[index]].weeks.map((item) => (
+                <td className={clases.week}>
+                  {item}
+                </td>
+              ))
             ))}
           </tr>
         </thead>
         <tbody className={clases.workingHours}>
-          {this.state.dataRowsBody.map(({index}) => (
+          {this.state.dataRowsBody.map((item, index) => (
             <Row
-              month_1={month_1}
-              month_2={month_2}
-              month_3={month_3}
-              month_4={month_4}
+              month={month}
 
               dataRowsBody={this.state.dataRowsBody[index]}
               statuses={this.state.dataStatus.statuses}

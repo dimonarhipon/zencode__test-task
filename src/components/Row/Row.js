@@ -40,128 +40,38 @@ let Row = props => {
           ))}
         </select>
       </td>  */}
-      {props.dataRowsBody.months[props.month_1].map(
-        ({ id, number, background, show }) => (
-          <td
-            className={clases.cellhours}
-            style={{ backgroundColor: background }}
-          >
-            <Input
-              key={id}
-              value={number}
-              id={id}
-              onChange={event =>
-                props.handlerChangeMonths(
-                  id,
-                  event,
-                  props.month_1,
-                  props.dataRowsBody.index,
-                )
-              }
-            />
-            <ChangeBg
-              id={id}
-              show={show}
-              onShow={props.onShow}
-              month={props.month_1}
-              background={background}
-              index={props.dataRowsBody.index}
-              handleChangeComplete={props.handleChangeComplete}
-            />
-          </td>
-        ),
-      )} 
-      {props.dataRowsBody.months[props.month_2].map(
-        ({ id, number, background, show }) => (
-          <td
-            className={clases.cellhours}
-            style={{ backgroundColor: background }}
-          >
-            <Input
-              key={id}
-              value={number}
-              id={id}
-              onChange={event =>
-                props.handlerChangeMonths(
-                  id,
-                  event,
-                  props.month_2,
-                  props.dataRowsBody.index,
-                )
-              }
-            />
-            <ChangeBg
-              id={id}
-              show={show}
-              onShow={props.onShow}
-              month={props.month_2}
-              background={background}
-              index={props.dataRowsBody.index}
-              handleChangeComplete={props.handleChangeComplete}
-            />
-          </td>
-        ),
-      )} 
-      {props.dataRowsBody.months[props.month_3].map(
-        ({ id, number, background, show }) => (
-          <td
-            className={clases.cellhours}
-            style={{ backgroundColor: background }}
-          >
-            <Input
-              key={id}
-              value={number}
-              id={id}
-              onChange={event =>
-                props.handlerChangeMonths(
-                  id,
-                  event,
-                  props.month_3,
-                  props.dataRowsBody.index,
-                )
-              }
-            />
-            <ChangeBg
-              id={id}
-              show={show}
-              onShow={props.onShow}
-              month={props.month_3}
-              background={background}
-              index={props.dataRowsBody.index}
-              handleChangeComplete={props.handleChangeComplete}
-            />
-          </td>
-        ),
-      )}
-      {props.dataRowsBody.months[props.month_4].map(
-        ({ id, number, background, show }) => (
-          <td
-            className={clases.cellhours}
-            style={{ backgroundColor: background }}
-          >
-            <Input
-              key={id}
-              value={number}
-              id={id}
-              onChange={event =>
-                props.handlerChangeMonths(
-                  id,
-                  event,
-                  props.month_4,
-                  props.dataRowsBody.index,
-                )
-              }
-            />
-            <ChangeBg
-              id={id}
-              show={show}
-              onShow={props.onShow}
-              month={props.month_4}
-              background={background}
-              index={props.dataRowsBody.index}
-              handleChangeComplete={props.handleChangeComplete}
-            />
-          </td>
+
+      {props.month.map((element, index) =>
+        props.dataRowsBody.months[props.month[index]].map(
+          ({ id, number, background, show }) => (
+            <td
+              className={clases.cellhours}
+              style={{ backgroundColor: background }}
+            >
+              <Input
+                key={id}
+                value={number}
+                id={id}
+                onChange={event =>
+                  props.handlerChangeMonths(
+                    id,
+                    event,
+                    props.month[index],
+                    props.dataRowsBody.index,
+                  )
+                }
+              />
+              <ChangeBg
+                id={id}
+                show={show}
+                onShow={props.onShow}
+                month={props.month[index]}
+                background={background}
+                index={props.dataRowsBody.index}
+                handleChangeComplete={props.handleChangeComplete}
+              />
+            </td>
+          ),
         ),
       )}
     </tr>
