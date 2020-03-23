@@ -1,5 +1,4 @@
 import React from 'react'
-// import Input from '../Input/Input'
 import clases from './Col.module.css'
 
 let Column = props => {

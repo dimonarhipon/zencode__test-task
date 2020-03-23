@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import clases from './SelectColor.module.css'
+import Button from '../../components/Button/Button'
 
 let SelectColor = (props) => {
   return (
@@ -15,13 +16,13 @@ let SelectColor = (props) => {
           onChange={props.handlerChangeTitle} 
           value={props.value}/>
         <br />
-        <button onClick={props.add}>Добавить</button>
+        <Button onClick={props.add}>Добавить</Button>
       </div>
       {props.data.map(({ id, color, title }) => (
         <div id={id} key={id} className={clases.row}>
           <input type="color" value={color} />
           {title}
-          <button onClick={() => props.delete(id)} className={clases.close}>X</button>
+          <Button onClick={() => props.delete(id)} className={clases.close}>X</Button>
         </div>
       ))}
     </Fragment>

@@ -9,6 +9,7 @@
     "prettier": "^1.19.1",
     "react": "^16.13.0",
     "react-color": "^2.18.0",
+    "react-cx": "^0.1.12",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-scripts": "^3.4.0",

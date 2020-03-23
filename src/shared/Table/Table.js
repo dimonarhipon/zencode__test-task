@@ -1,9 +1,17 @@
 import React from 'react'
 import clases from './Table.module.css'
-import Col from '../../Column/Col'
+import Col from '../Column/Col'
 import Row from '../Row/Row'
-import Modal from '../Modal/Modal'
-import Button from '../Button/Button'
+import Modal from '../../components/Modal/Modal'
+import Button from '../../components/Button/Button'
+
+export let Tr = (props) => {
+  return <tr {...props}></tr>
+}
+export let Td = (props) => {
+  return <td {...props}></td>
+}
+
 
 class Table extends React.Component {
   state = {
@@ -683,7 +691,7 @@ class Table extends React.Component {
     return (
       <table className={clases.table}>
         <thead className={clases.columnsGroup}>
-          <tr>
+          <Tr>
             <Col row={2} value={this.state.dataRowsHead.name} />
             <Col row={2} value={this.state.dataRowsHead.project} />
             <Col row={2} value={this.state.dataRowsHead.status} />
@@ -693,16 +701,16 @@ class Table extends React.Component {
                 value={this.state.dataRowsHead.months[item].name} 
               />
             ))}
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             {month.map((element, index) => (
               this.state.dataRowsHead.months[month[index]].weeks.map((item) => (
-                <td className={clases.week}>
+                <Td className={clases.week}>
                   {item}
-                </td>
+                </Td>
               ))
             ))}
-          </tr>
+          </Tr>
         </thead>
         <tbody className={clases.workingHours}>
           {this.state.dataRowsBody.map((item, index) => (

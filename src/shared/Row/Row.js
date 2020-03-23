@@ -1,34 +1,37 @@
 import React from 'react'
-import Input from '../Input/Input'
+import Input from '../../components/Input/Input'
 import ChangeBg from '../ChangeBg/ChangeBg'
 import clases from './Row.module.css'
+import { Tr, Td } from '../Table/Table'
+import Button from '../../components/Button/Button'
+
 let Row = props => {
   return (
-    <tr>
-      <td className={clases.cellhours}>
+    <Tr>
+      <Td className={clases.cellhours}>
         <Input
           value={props.dataRowsBody.fullName}
           onChange={event =>
             props.handlerChangefullName(props.dataRowsBody.index, event)
           }
         />
-      </td>
-      <td className={clases.cellhours}>
+      </Td>
+      <Td className={clases.cellhours}>
         <Input
           value={props.dataRowsBody.nameProject}
           onChange={event =>
             props.handlerChangeNameProject(props.dataRowsBody.index, event)
           }
         />
-        <button onClick={props.addProject}>+</button>
-      </td>
-      <td className={clases.cellhours}>
+        <Button onClick={props.addProject}>+</Button>
+      </Td>
+      <Td className={clases.cellhours}>
         <select>
           {props.statuses.map(({ id, text }) => (
             <option key={id}>{text}</option>
           ))}
         </select>
-      </td>
+      </Td>
       {/* ------------------------ Цвет фона ---------------- */}
 
       {/* <td>
@@ -44,7 +47,7 @@ let Row = props => {
       {props.month.map((element, index) =>
         props.dataRowsBody.months[props.month[index]].map(
           ({ id, number, background, show }) => (
-            <td
+            <Td
               className={clases.cellhours}
               style={{ backgroundColor: background }}
             >
@@ -70,11 +73,11 @@ let Row = props => {
                 index={props.dataRowsBody.index}
                 handleChangeComplete={props.handleChangeComplete}
               />
-            </td>
+            </Td>
           ),
         ),
       )}
-    </tr>
+    </Tr>
   )
 }
 export default Row

@@ -1,8 +1,8 @@
 import React from 'react'
 import clases from './Modal.module.css'
 import Button from '../Button/Button'
-import SelectStatus from '../SelectStatus/SelectStatus'
-import SelectColor from '../SelectColor/SelectColor'
+import SelectStatus from '../../shared/SelectStatus/SelectStatus'
+import SelectColor from '../../shared/SelectColor/SelectColor'
 
 let Modal = props => {
   return (
