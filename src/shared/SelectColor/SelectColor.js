@@ -18,11 +18,11 @@ let SelectColor = (props) => {
         <br />
         <Button onClick={props.add}>Добавить</Button>
       </div>
-      {props.data.map(({ id, color, title }) => (
-        <div id={id} key={id} className={clases.row}>
-          <input type="color" value={color} />
-          {title}
-          <Button onClick={() => props.delete(id)} className={clases.close}>X</Button>
+      {props.data.map(( item, colorIndex ) => (
+        <div className={clases.row}>
+          <input type="color" value={item.color} style={{marginRight: 10 + 'px'}}/>
+          {item.title}
+          <Button onClick={() => props.delete(colorIndex)} className={clases.close}>X</Button>
         </div>
       ))}
     </Fragment>

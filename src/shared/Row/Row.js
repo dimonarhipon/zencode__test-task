@@ -12,7 +12,7 @@ let Row = props => {
         <Input
           value={props.dataRowsBody.fullName}
           onChange={event =>
-            props.handlerChangefullName(props.dataRowsBody.index, event)
+            props.handlerChangefullName(props.dataRowsBody.Index, event)
           }
         />
       </Td>
@@ -20,15 +20,15 @@ let Row = props => {
         <Input
           value={props.dataRowsBody.nameProject}
           onChange={event =>
-            props.handlerChangeNameProject(props.dataRowsBody.index, event)
+            props.handlerChangeNameProject(props.dataRowsBody.Index, event)
           }
         />
         <Button onClick={props.addProject}>+</Button>
       </Td>
       <Td className={clases.cellhours}>
         <select>
-          {props.statuses.map(({ id, text }) => (
-            <option key={id}>{text}</option>
+          {props.statuses.map(({ text, status }) => (
+            <option value={status}>{text}</option>
           ))}
         </select>
       </Td>
@@ -46,32 +46,40 @@ let Row = props => {
 
       {props.month.map((element, index) =>
         props.dataRowsBody.months[props.month[index]].map(
-          ({ id, number, background, show }) => (
+          (item, monthsIndex) => (
             <Td
               className={clases.cellhours}
-              style={{ backgroundColor: background }}
+              style={{ backgroundColor: item.background }}
             >
               <Input
-                key={id}
-                value={number}
-                id={id}
+                value={item.number}
                 onChange={event =>
                   props.handlerChangeMonths(
-                    id,
+                    monthsIndex,
                     event,
                     props.month[index],
-                    props.dataRowsBody.index,
+                    props.dataRowsBody.Index,
                   )
                 }
               />
               <ChangeBg
-                id={id}
-                show={show}
-                onShow={props.onShow}
-                month={props.month[index]}
-                background={background}
-                index={props.dataRowsBody.index}
-                handleChangeComplete={props.handleChangeComplete}
+                show={item.show}
+                background={item.background}
+                onClick={() =>
+                  props.onShow(
+                    monthsIndex,
+                    props.month[index],
+                    props.dataRowsBody.Index,
+                  )
+                }
+                onChangeComplete={color =>
+                  props.handleChangeComplete(
+                    monthsIndex,
+                    color,
+                    props.month[index],
+                    props.dataRowsBody.Index,
+                  )
+                }
               />
             </Td>
           ),

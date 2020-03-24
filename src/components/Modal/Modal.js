@@ -29,7 +29,7 @@ let Modal = props => {
         handlerChangeTitle={props.handlerChangeTitle}
       />
       }
-      <Button onClick={props.closeModal}>Закрыть</Button>
+      <Button onClick={props.close}>Закрыть</Button>
     </section>
   )
 }

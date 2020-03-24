@@ -1,6 +1,7 @@
 import React from 'react'
 import { TwitterPicker } from 'react-color'
 import clases from './ChangeBg.module.css'
+import Button from '../../components/Button/Button'
 let ChangeBg = props => {
   return (
     <>
@@ -8,31 +9,11 @@ let ChangeBg = props => {
         {props.show ? (
           <TwitterPicker
             color={props.background}
-            onChangeComplete={color =>
-              props.handleChangeComplete(
-                color,
-                props.id,
-                props.month,
-                props.index,
-              )
-            }
+            onChangeComplete={props.onChangeComplete}
           />
         ) : null}
       </div>
-      <button
-        className={clases.fill}
-        onClick={() => props.onShow(props.id, props.month, props.index)}
-      >
-        🖌
-      </button>
-      {/* <button
-        style={{
-          backgroundColor: background,
-          marginBottom: 20 + "px"
-        }}
-      >
-        Цвет
-      </button> */}
+      <Button onClick={props.onClick} className={clases.fill}>🖌</Button>
     </>
   )
 }

@@ -15,10 +15,10 @@ let SelectStatus = (props) => {
         <br />
         <Button onClick={props.add}>Добавить</Button>
       </div>
-      {props.data.map(({ id, text }) => (
-        <div id={id} key={id} className={clases.row}>
-          <p>{text}</p>
-          <Button onClick={() => props.delete(id)} className={clases.close}>X</Button>
+      {props.data.map((item, statusIndex) => (
+        <div className={clases.row}>
+          <p>{item.text}</p>
+          <Button onClick={() => props.delete(statusIndex)} className={clases.close}>X</Button>
         </div>
       ))}
     </Fragment>
