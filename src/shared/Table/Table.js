@@ -59,21 +59,18 @@ class Table extends React.Component {
     },
     dataRowsBody: [
       {
-        Index: 0,
         fullName: "Имя 1",
         nameProject: "Проект 1",
         selectedValue: 'Идёт',
         months: getMonths(),
       },
       {
-        Index: 1,
         fullName: "Имя 1",
         nameProject: "Проект 1",
         selectedValue: 'Идёт',
         months: getMonths(),
       },
       {
-        Index: 2,
         fullName: "Имя 1",
         nameProject: "Проект 1",
         selectedValue: 'Идёт',
@@ -101,12 +98,11 @@ class Table extends React.Component {
     showModalStatus: false,
     showModalColor: false
   }
-  
+  // -----------------------  Добавление разработчика
   addDeveloper = () => {
     let data = Object.freeze(this.state.dataRowsBody);
     let dataRowsBody = produce(data, item => {
       item.push({
-        Index: this.state.dataRowsBody.length,
         fullName: "Имя",
         nameProject: "Проект",
         selectedValue: 'Идёт',
@@ -115,33 +111,21 @@ class Table extends React.Component {
     })
     this.setState({dataRowsBody});
   }
-  //              Доработать добавление проекта
-  addProject = () => {
+  // -----------------------  Добавление проекта разработчику
+  addProject = (index) => {
     let data = Object.freeze(this.state.dataRowsBody);
     let dataRowsBody = produce(data, item => {
-      item.push({
-        Index: this.state.dataRowsBody.length,
-        nameProject: "Проект",
-        selectedValue: 'Идёт',
+      item.splice(index + 1, 0, {
+        fullName: '',
+        nameProject: '',
+        selectedValue: '',
         months: getMonths(),
       })
     })
-    // this.setState({dataRowsBody});
-
-    // this.state.dataRowsBody.sort(function (a, b) {
-    //   if (a.index > b.index) {
-    //     return 1;
-    //   }
-    //   if (a.index < b.index) {
-    //     return -1;
-    //   }
-    //   return 0;
-    // });
-    // console.log(this.state.dataRowsBody);
+    
     this.setState({dataRowsBody});
   }
-
-  // --------------------------- Обработчики редактирования Статуса 
+  // ------------------------ Обработчики редактирования Статуса 
   addStatus = () => {
     let data = Object.freeze(this.state.dataStatus)
     let value = this.state.dataStatus.value;
@@ -201,66 +185,56 @@ class Table extends React.Component {
     this.setState({showModalColor})
   }
   // -----------------------  Обработчик редактирования имени разработчика
-  handlerChangefullName = (Index, event) => {
+  handlerChangefullName = (index, event) => {
     let data = Object.freeze(this.state.dataRowsBody)
     let dataRowsBody = produce(data, item => {
-      item[Index].fullName = event.target.value
+      item[index].fullName = event.target.value
     })
     this.setState({ dataRowsBody })
 	}
   //  вместо fullName - ещё один параметр
   // -----------------------  Обработчик редактирования названия проекта
-  handlerChangeNameProject = (Index, event) => {
+  handlerChangeNameProject = (index, event) => {
     let data = Object.freeze(this.state.dataRowsBody)
     let dataRowsBody = produce(data, item => {
-      item[Index].nameProject = event.target.value
+      item[index].nameProject = event.target.value
     })
     this.setState({ dataRowsBody })
   }
   // ------------------------ Обработчик выбора текущего статуса
-  handlerSelectedStatus = (Index, event) => {
+  handlerSelectedStatus = (index, event) => {
     let data = Object.freeze(this.state.dataRowsBody)
     let dataRowsBody = produce(data, item => {
-      item[Index].selectedValue = event.target.value
+      item[index].selectedValue = event.target.value
     })
     this.setState({ dataRowsBody });
   }
   // -----------------------  Обработчик редактирования часов в любом месяце
-  handlerChangeMonths = (monthsIndex, event, month, Index) => {
-    // let item = this.state.dataRowsBody[Index].months[month].findIndex(
-    //   (number, index) => index === monthsIndex
-    // );
-    // let months = Object.freeze(
-    //   this.state.dataRowsBody[Index].months[month]
-    // );
-    // months[item].number = event.target.value;
-    // this.setState({ months });
-
+  handlerChangeMonths = (monthsIndex, event, month, index) => {
     let data = Object.freeze(this.state.dataRowsBody)
     let dataRowsBody = produce(data, item => {
-      item[Index].months[month][monthsIndex].number = event.target.value
+      item[index].months[month][monthsIndex].number = event.target.value
     })
     this.setState({dataRowsBody})
   };
   //  --------------------- Обработчик заливки фона ячейки
-  handleChangeComplete = (monthsIndex, color, month, Index) => {
+  handleChangeComplete = (monthsIndex, color, month, index) => {
     let data = Object.freeze(this.state.dataRowsBody)
     let dataRowsBody = produce(data, item => {
-      item[Index].months[month][monthsIndex].background = color.hex
+      item[index].months[month][monthsIndex].background = color.hex
     })
     this.setState({dataRowsBody})
   }
   //  --------------------- Обработчик открытия окна заливки фона ячейки
-  onShow = (monthsIndex, month, Index) => { 
+  onShow = (monthsIndex, month, index) => { 
     let data = Object.freeze(this.state.dataRowsBody)
-    let show = data[Index].months[month][monthsIndex].show
+    let show = data[index].months[month][monthsIndex].show
     let dataRowsBody = produce(data, item => {
-      item[Index].months[month][monthsIndex].show = !show
+      item[index].months[month][monthsIndex].show = !show
     })
     this.setState({dataRowsBody})
   };
   onClose = () => {
-
   }
   componentDidUpdate() {
     const state = JSON.stringify(this.state);
@@ -309,6 +283,7 @@ class Table extends React.Component {
             <Row
               month={month}
               dataRowsBody={this.state.dataRowsBody[index]}
+              index={index}
               dataStatus={this.state.dataStatus}
               colors={this.state.dataColor.colors}
 

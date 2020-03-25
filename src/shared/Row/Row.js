@@ -12,7 +12,7 @@ let Row = props => {
         <Input
           value={props.dataRowsBody.fullName}
           onChange={event =>
-            props.handlerChangefullName(props.dataRowsBody.Index, event)
+            props.handlerChangefullName(props.index, event)
           }
         />
       </Td>
@@ -20,15 +20,15 @@ let Row = props => {
         <Input
           value={props.dataRowsBody.nameProject}
           onChange={event =>
-            props.handlerChangeNameProject(props.dataRowsBody.Index, event)
+            props.handlerChangeNameProject(props.index, event)
           }
         />
-        <Button onClick={props.addProject}>+</Button>
+        <Button onClick={() => props.addProject(props.index)}>+</Button>
       </Td>
       <Td className={clases.cellhours}>
         <select 
           value={props.dataRowsBody.selectedValue}
-          onChange={event => props.handlerSelectedStatus(props.dataRowsBody.Index, event)}>
+          onChange={event => props.handlerSelectedStatus(props.index, event)}>
           {props.dataStatus.statuses.map(({ text }) => (
             <option value={text}>{text}</option>
           ))}
@@ -60,7 +60,7 @@ let Row = props => {
                     monthsIndex,
                     event,
                     props.month[index],
-                    props.dataRowsBody.Index,
+                    props.index,
                   )
                 }
               />
@@ -71,7 +71,7 @@ let Row = props => {
                   props.onShow(
                     monthsIndex,
                     props.month[index],
-                    props.dataRowsBody.Index,
+                    props.index,
                   )
                 }
                 onChangeComplete={color =>
@@ -79,7 +79,7 @@ let Row = props => {
                     monthsIndex,
                     color,
                     props.month[index],
-                    props.dataRowsBody.Index,
+                    props.index,
                   )
                 }
               />
