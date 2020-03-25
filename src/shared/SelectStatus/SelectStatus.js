@@ -10,7 +10,6 @@ let SelectStatus = (props) => {
         <input 
           type="text" 
           onChange={props.handlerChange} 
-          onKeyPress={props.handleEnter} 
           value={props.value}/>
         <br />
         <Button onClick={props.add}>Добавить</Button>

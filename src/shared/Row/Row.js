@@ -26,9 +26,11 @@ let Row = props => {
         <Button onClick={props.addProject}>+</Button>
       </Td>
       <Td className={clases.cellhours}>
-        <select>
-          {props.statuses.map(({ text, status }) => (
-            <option value={status}>{text}</option>
+        <select 
+          value={props.dataRowsBody.selectedValue}
+          onChange={event => props.handlerSelectedStatus(props.dataRowsBody.Index, event)}>
+          {props.dataStatus.statuses.map(({ text }) => (
+            <option value={text}>{text}</option>
           ))}
         </select>
       </Td>

@@ -6,6 +6,7 @@ import Modal from '../../components/Modal/Modal'
 import Button from '../../components/Button/Button'
 import produce from  'immer';
 
+
 export let Tr = (props) => {
   return <tr {...props}></tr>
 }
@@ -61,26 +62,29 @@ class Table extends React.Component {
         Index: 0,
         fullName: "Имя 1",
         nameProject: "Проект 1",
+        selectedValue: 'Идёт',
         months: getMonths(),
       },
       {
         Index: 1,
         fullName: "Имя 1",
         nameProject: "Проект 1",
+        selectedValue: 'Идёт',
         months: getMonths(),
       },
       {
         Index: 2,
         fullName: "Имя 1",
         nameProject: "Проект 1",
+        selectedValue: 'Идёт',
         months: getMonths(),
       },
     ],
     dataStatus: {
       statuses: [
-        { selected: true, status: 1, text: 'Идёт' },
-        { selected: false, status: 2, text: 'Согласован старт' },
-        { selected: false, status: 3, text: 'Завершается' },
+        { text: 'Идёт' },
+        { text: 'Согласован старт' },
+        { text: 'Завершается' },
       ],
       input: '0', 
       value: "Пример"
@@ -105,6 +109,7 @@ class Table extends React.Component {
         Index: this.state.dataRowsBody.length,
         fullName: "Имя",
         nameProject: "Проект",
+        selectedValue: 'Идёт',
         months: getMonths(),
       })
     })
@@ -117,6 +122,7 @@ class Table extends React.Component {
       item.push({
         Index: this.state.dataRowsBody.length,
         nameProject: "Проект",
+        selectedValue: 'Идёт',
         months: getMonths(),
       })
     })
@@ -153,11 +159,6 @@ class Table extends React.Component {
       item.statuses.splice(statusIndex, 1)
     })
     this.setState({dataStatus} )
-  }
-  handlerChangeStatus = event => {
-    let data = Object.freeze(this.state.dataStatus)
-    let dataStatus = produce(data, item => {item.value = event.target.value})
-    this.setState({ dataStatus })
   }
   showModalStatus = () => {
     let showModalStatus =  !this.state.showModalStatus
@@ -201,16 +202,28 @@ class Table extends React.Component {
   }
   // -----------------------  Обработчик редактирования имени разработчика
   handlerChangefullName = (Index, event) => {
-    let dataRowsBody = Object.freeze(this.state.dataRowsBody)
-    dataRowsBody[Index].fullName = event.target.value
+    let data = Object.freeze(this.state.dataRowsBody)
+    let dataRowsBody = produce(data, item => {
+      item[Index].fullName = event.target.value
+    })
     this.setState({ dataRowsBody })
 	}
   //  вместо fullName - ещё один параметр
   // -----------------------  Обработчик редактирования названия проекта
   handlerChangeNameProject = (Index, event) => {
-    let dataRowsBody = Object.freeze(this.state.dataRowsBody)
-    dataRowsBody[Index].nameProject = event.target.value
+    let data = Object.freeze(this.state.dataRowsBody)
+    let dataRowsBody = produce(data, item => {
+      item[Index].nameProject = event.target.value
+    })
     this.setState({ dataRowsBody })
+  }
+  // ------------------------ Обработчик выбора текущего статуса
+  handlerSelectedStatus = (Index, event) => {
+    let data = Object.freeze(this.state.dataRowsBody)
+    let dataRowsBody = produce(data, item => {
+      item[Index].selectedValue = event.target.value
+    })
+    this.setState({ dataRowsBody });
   }
   // -----------------------  Обработчик редактирования часов в любом месяце
   handlerChangeMonths = (monthsIndex, event, month, Index) => {
@@ -246,6 +259,9 @@ class Table extends React.Component {
     })
     this.setState({dataRowsBody})
   };
+  onClose = () => {
+
+  }
   componentDidUpdate() {
     const state = JSON.stringify(this.state);
     localStorage.setItem("user", state);
@@ -263,7 +279,9 @@ class Table extends React.Component {
     }
     // получаю число 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 10 || 11
     return (
-      <table className={clases.table}>
+      <table className={clases.table} 
+        // onClick={this.onShow}
+        >
         <thead className={clases.columnsGroup}>
           <Tr>
             <Col row={2} value={this.state.dataRowsHead.name} />
@@ -291,10 +309,12 @@ class Table extends React.Component {
             <Row
               month={month}
               dataRowsBody={this.state.dataRowsBody[index]}
-              statuses={this.state.dataStatus.statuses}
+              dataStatus={this.state.dataStatus}
               colors={this.state.dataColor.colors}
+
               handlerChangefullName={this.handlerChangefullName}
               handlerChangeNameProject={this.handlerChangeNameProject}
+              handlerSelectedStatus={this.handlerSelectedStatus}
               addProject={this.addProject}
 
               handlerChangeMonths={this.handlerChangeMonths}
@@ -337,3 +357,5 @@ class Table extends React.Component {
   }
 }
 export default Table
+
+// window.onclick = Table.onShow()
