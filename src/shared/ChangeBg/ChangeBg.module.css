@@ -1,7 +1,8 @@
 .color {
   position: absolute;
   top: 53px;
-  z-index: 1;
+  z-index: 2;
+  transition: .3s all;
 }
 .fill {
   position: relative;
@@ -9,4 +10,16 @@
   padding: 0;
   border: none;
   background-color: transparent;
+}
+.overlay {
+  opacity: 1;
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(165, 164, 164, 0.5);
+  z-index: 1;
+  transition: .3s all;
 }

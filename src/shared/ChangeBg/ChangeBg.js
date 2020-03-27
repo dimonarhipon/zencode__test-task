@@ -1,21 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { TwitterPicker } from 'react-color'
 import clases from './ChangeBg.module.css'
 import Button from '../../components/Button/Button'
 let ChangeBg = props => {
+  const [show, setShow] = useState(false)
   return (
     <>
-      <div className={clases.color}>
-        {props.show ? (
+      <section className={clases.color}>
+        {show ? (
           <TwitterPicker
             color={props.background}
-            onChangeComplete={props.onChangeComplete}
+            onChangeComplete={(color) => {props.onChangeComplete(color); setShow(false)}}
           />
         ) : null}
-      </div>
-      <Button onClick={props.onClick} className={clases.fill}>
+      </section>
+      <Button onClick={() => {props.onClick(); setShow(!show)}} className={clases.fill}>
         🖌
       </Button>
+      {show ? (
+        <div className={clases.overlay} onClick={() => setShow(false)}></div>
+      ) : null}
     </>
   )
 }
