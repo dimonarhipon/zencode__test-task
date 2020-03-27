@@ -1,9 +1,9 @@
 
 .title {
-  width: 183px;
-  padding: 5px; 
+  width: 140px;
+  padding: 15px 0px; 
   font-weight: normal;
-  background-color: #eee;
-  border: 0.05em solid #111;
+  border: 0.05em solid #F0EBE4;
+  border-radius: 2px;
 }
 

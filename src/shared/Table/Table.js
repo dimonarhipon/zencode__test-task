@@ -304,8 +304,8 @@ class Table extends React.Component {
                       this.handlerChangeNameProject(indexRow, event)
                     }
                   />
-                  <Button onClick={() => this.addProject(indexRow)}>+</Button>
-                  <Button onClick={() => this.deleteProject(indexRow)}>
+                  <Button className={clases.buttonAddProject} onClick={() => this.addProject(indexRow)}>+</Button>
+                  <Button className={clases.buttonDeleteProject} onClick={() => this.deleteProject(indexRow)}>
                     -
                   </Button>
                 </Td>

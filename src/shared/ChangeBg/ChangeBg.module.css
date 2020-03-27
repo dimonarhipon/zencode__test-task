@@ -5,8 +5,9 @@
   transition: .3s all;
 }
 .fill {
-  position: relative;
-  left: 23px;
+  position: absolute;
+  left: 25px;
+  bottom: 0px;
   padding: 0;
   border: none;
   background-color: transparent;
