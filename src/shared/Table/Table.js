@@ -106,8 +106,15 @@ class Table extends React.Component {
     })
     this.setState({ dataRowsBody })
   }
+  deleteDeveloper = indexRow => {
+    let data = Object.freeze(this.state.dataRowsBody)
+    let dataRowsBody = produce(data, item => {
+      item.splice(indexRow, 1)
+    })
+    this.setState({ dataRowsBody })
+  }
   // -----------------------  Добавление / Удаление проекта разработчику
-  addProject = (indexRow) => {
+  addProject = indexRow => {
     let data = Object.freeze(this.state.dataRowsBody)
     let dataRowsBody = produce(data, item => {
       item.splice(indexRow + 1, 0, {
@@ -116,6 +123,13 @@ class Table extends React.Component {
         selectedValue: '',
         months: getMonths(),
       })
+    })
+    this.setState({ dataRowsBody })
+  }
+  deleteProject = indexRow => {
+    let data = Object.freeze(this.state.dataRowsBody)
+    let dataRowsBody = produce(data, item => {
+      item.splice(indexRow, 1)
     })
     this.setState({ dataRowsBody })
   }
@@ -131,7 +145,7 @@ class Table extends React.Component {
     })
     this.setState({ dataStatus })
   }
-  deleteStatus = (statusIndex) => {
+  deleteStatus = statusIndex => {
     let data = Object.freeze(this.state.dataStatus)
     let dataStatus = produce(data, item => {
       item.statuses.splice(statusIndex, 1)
@@ -157,7 +171,7 @@ class Table extends React.Component {
     })
     this.setState({ dataColor })
   }
-  deleteColor = (colorIndex) => {
+  deleteColor = colorIndex => {
     let data = Object.freeze(this.state.dataColor)
     let dataColor = produce(data, item => {
       item.colors.splice(colorIndex, 1)
@@ -277,7 +291,9 @@ class Table extends React.Component {
               <Td className={clases.cellhours}>
                 <Input
                   value={this.state.dataRowsBody[indexRow].fullName}
-                  onChange={event => this.handlerChangefullName(indexRow, event)}
+                  onChange={event =>
+                    this.handlerChangefullName(indexRow, event)
+                  }
                 />
               </Td>
               <Td className={clases.cellhours}>
@@ -288,11 +304,14 @@ class Table extends React.Component {
                   }
                 />
                 <Button onClick={() => this.addProject(indexRow)}>+</Button>
+                <Button onClick={() => this.deleteProject(indexRow)}>-</Button>
               </Td>
               <Td className={clases.cellhours}>
                 <select
                   value={this.state.dataRowsBody[indexRow].selectedValue}
-                  onChange={event => this.handlerSelectedStatus(indexRow, event)}
+                  onChange={event =>
+                    this.handlerSelectedStatus(indexRow, event)
+                  }
                 >
                   {this.state.dataStatus.statuses.map(({ text }) => (
                     <option value={text}>{text}</option>
@@ -341,6 +360,10 @@ class Table extends React.Component {
           <Button
             onClick={this.addDeveloper}
             children={'Добавить разработчика'}
+          />
+          <Button
+            onClick={this.deleteDeveloper}
+            children={'Удалить разработчика'}
           />
         </tbody>
         <div className={clases.modalStatus}>
