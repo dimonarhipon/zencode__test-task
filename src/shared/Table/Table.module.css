@@ -35,7 +35,7 @@
   text-align: center;
   background-color: lightgreen;
   border: 1px solid black;
-} 
+}
 .title {
   width: 183px;
   background-color: #eee;
@@ -50,4 +50,8 @@
   left: 550px;
   width: 200px;
 }
-
+.cellhours {
+  position: relative;
+  padding: 0;
+  border: 0.03em solid #111;
+}

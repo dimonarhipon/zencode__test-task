@@ -13,7 +13,9 @@ let ChangeBg = props => {
           />
         ) : null}
       </div>
-      <Button onClick={props.onClick} className={clases.fill}>🖌</Button>
+      <Button onClick={props.onClick} className={clases.fill}>
+        🖌
+      </Button>
     </>
   )
 }
