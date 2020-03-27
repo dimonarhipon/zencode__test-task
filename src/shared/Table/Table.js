@@ -106,10 +106,10 @@ class Table extends React.Component {
     })
     this.setState({ dataRowsBody })
   }
-  deleteDeveloper = indexRow => {
+  deleteDeveloper = () => {
     let data = Object.freeze(this.state.dataRowsBody)
     let dataRowsBody = produce(data, item => {
-      item.splice(indexRow, 1)
+      item.pop()
     })
     this.setState({ dataRowsBody })
   }
@@ -264,109 +264,127 @@ class Table extends React.Component {
     }
     // получаю число 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 10 || 11
     return (
-      <table className={clases.table}>
-        <thead className={clases.columnsGroup}>
-          <Tr>
-            <Col row={2} value={this.state.dataRowsHead.name} />
-            <Col row={2} value={this.state.dataRowsHead.project} />
-            <Col row={2} value={this.state.dataRowsHead.status} />
-            {month.map(item => (
-              <Col
-                col={this.state.dataRowsHead.months[item].weeks.length}
-                value={this.state.dataRowsHead.months[item].name}
-              />
-            ))}
-          </Tr>
-          <Tr>
-            {month.map((element, index) =>
-              this.state.dataRowsHead.months[month[index]].weeks.map(item => (
-                <Td className={clases.week}>{item}</Td>
-              )),
-            )}
-          </Tr>
-        </thead>
-        <tbody className={clases.workingHours}>
-          {this.state.dataRowsBody.map((item, indexRow) => (
+      <>
+        <table className={clases.table}>
+          <thead className={clases.columnsGroup}>
             <Tr>
-              <Td className={clases.cellhours}>
-                <Input
-                  value={this.state.dataRowsBody[indexRow].fullName}
-                  onChange={event =>
-                    this.handlerChangefullName(indexRow, event)
-                  }
+              <Col row={2} value={this.state.dataRowsHead.name} />
+              <Col row={2} value={this.state.dataRowsHead.project} />
+              <Col row={2} value={this.state.dataRowsHead.status} />
+              {month.map(item => (
+                <Col key={item}
+                  col={this.state.dataRowsHead.months[item].weeks.length}
+                  value={this.state.dataRowsHead.months[item].name}
                 />
-              </Td>
-              <Td className={clases.cellhours}>
-                <Input
-                  value={this.state.dataRowsBody[indexRow].nameProject}
-                  onChange={event =>
-                    this.handlerChangeNameProject(indexRow, event)
-                  }
-                />
-                <Button onClick={() => this.addProject(indexRow)}>+</Button>
-                <Button onClick={() => this.deleteProject(indexRow)}>-</Button>
-              </Td>
-              <Td className={clases.cellhours}>
-                <select
-                  value={this.state.dataRowsBody[indexRow].selectedValue}
-                  onChange={event =>
-                    this.handlerSelectedStatus(indexRow, event)
-                  }
-                >
-                  {this.state.dataStatus.statuses.map(({ text }) => (
-                    <option value={text}>{text}</option>
-                  ))}
-                </select>
-              </Td>
+              ))}
+            </Tr>
+            <Tr>
               {month.map((element, index) =>
-                this.state.dataRowsBody[indexRow].months[month[index]].map(
-                  (item, monthsIndex) => (
-                    <Td
-                      className={clases.cellhours}
-                      style={{ backgroundColor: item.background }}
-                    >
-                      <Input
-                        value={item.number}
-                        onChange={event =>
-                          this.handlerChangeMonths(
-                            monthsIndex,
-                            event,
-                            month[index],
-                            indexRow,
-                          )
-                        }
-                      />
-                      <ChangeBg
-                        show={item.show}
-                        background={item.background}
-                        onClick={() =>
-                          this.onShow(monthsIndex, month[index], indexRow)
-                        }
-                        onChangeComplete={color =>
-                          this.handleChangeComplete(
-                            monthsIndex,
-                            color,
-                            month[index],
-                            indexRow,
-                          )
-                        }
-                      />
-                    </Td>
-                  ),
-                ),
+                this.state.dataRowsHead.months[month[index]].weeks.map(item => (
+                  <Td key={item} className={clases.week}>{item}</Td>
+                )),
               )}
             </Tr>
-          ))}
+          </thead>
+          <tbody className={clases.workingHours}>
+            {this.state.dataRowsBody.map((item, indexRow) => (
+              <Tr key={indexRow}>
+                <Td className={clases.cellhours}>
+                  <Input
+                    value={this.state.dataRowsBody[indexRow].fullName}
+                    onChange={event =>
+                      this.handlerChangefullName(indexRow, event)
+                    }
+                  />
+                </Td>
+                <Td className={clases.cellhours}>
+                  <Input
+                    value={this.state.dataRowsBody[indexRow].nameProject}
+                    onChange={event =>
+                      this.handlerChangeNameProject(indexRow, event)
+                    }
+                  />
+                  <Button onClick={() => this.addProject(indexRow)}>+</Button>
+                  <Button onClick={() => this.deleteProject(indexRow)}>
+                    -
+                  </Button>
+                </Td>
+                <Td className={clases.cellhours}>
+                  <select
+                    value={this.state.dataRowsBody[indexRow].selectedValue}
+                    onChange={event =>
+                      this.handlerSelectedStatus(indexRow, event)
+                    }
+                  >
+                    {this.state.dataStatus.statuses.map(({ text }) => (
+                      <option key={text} value={text}>{text}</option>
+                    ))}
+                  </select>
+                </Td>
+                {month.map((element, index) =>
+                  this.state.dataRowsBody[indexRow].months[month[index]].map(
+                    (item, monthsIndex) => (
+                      <Td key={monthsIndex}
+                        className={clases.cellhours}
+                        style={{ backgroundColor: item.background }}
+                      >
+                        <Input
+                          value={item.number}
+                          onChange={event =>
+                            this.handlerChangeMonths(
+                              monthsIndex,
+                              event,
+                              month[index],
+                              indexRow,
+                            )
+                          }
+                        />
+                        <ChangeBg
+                          show={item.show}
+                          background={item.background}
+                          onClick={() =>
+                            this.onShow(monthsIndex, month[index], indexRow)
+                          }
+                          onChangeComplete={color =>
+                            this.handleChangeComplete(
+                              monthsIndex,
+                              color,
+                              month[index],
+                              indexRow,
+                            )
+                          }
+                        />
+                      </Td>
+                    ),
+                  ),
+                )}
+              </Tr>
+            ))}
+          </tbody>
+        </table>
+        <section className={clases.control}>
           <Button
+            className={clases.button}
             onClick={this.addDeveloper}
             children={'Добавить разработчика'}
           />
           <Button
+            className={clases.button}
             onClick={this.deleteDeveloper}
             children={'Удалить разработчика'}
           />
-        </tbody>
-        <div className={clases.modalStatus}>
+          <Button
+            className={clases.button}
+            onClick={this.showModalStatus}
+            children={'Редактировать статус'}
+          />
+          <Button
+            className={clases.button}
+            onClick={this.showModalColor}
+            children={'Редактировать цвет'}
+          />
+        </section>
+        <section className={clases.modalStatus}>
           {this.state.showModalStatus ? (
             <Modal
               data={this.state.dataStatus.statuses}
@@ -378,8 +396,8 @@ class Table extends React.Component {
               type="hidden"
             />
           ) : null}
-        </div>
-        <div className={clases.modalColor}>
+        </section>
+        <section className={clases.modalColor}>
           {this.state.showModalColor ? (
             <Modal
               data={this.state.dataColor.colors}
@@ -393,13 +411,8 @@ class Table extends React.Component {
               input={this.state.dataColor.input}
             />
           ) : null}
-        </div>
-        <Button
-          onClick={this.showModalStatus}
-          children={'Редактировать статус'}
-        />
-        <Button onClick={this.showModalColor} children={'Редактировать цвет'} />
-      </table>
+        </section>
+      </>
     )
   }
 }
