@@ -4,7 +4,7 @@
   width: 1100px;
   margin: 0 auto;
   margin-top: 20px;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
 }
 .columnsGroup {
   width: 450px;
@@ -62,7 +62,7 @@
   width: 40px;
   height: 40px;
   padding: 0;
-  border: 0.03em solid #F0EBE4;
+  border: 0.05em solid #F0EBE4;
   border-radius: 2px;
 }
 .modalStatus {
