@@ -19,3 +19,8 @@
   color: red;
   border: none;
 }
+.input {
+  width: 150px;
+  height: 16px;
+  background-color: #fff;
+}

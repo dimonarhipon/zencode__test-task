@@ -1,25 +1,35 @@
 import React, { Fragment } from 'react'
 import clases from './SelectColor.module.css'
 import Button from '../../components/Button/Button'
+import { useSelector, useDispatch } from 'react-redux'
+import Input from '../../components/Input/Input'
+import {
+  addColor,
+  deleteColor,
+  handlerChangeColor,
+  handlerChangeTitleColor,
+} from '../../redux/color-reducer'
 
 let SelectColor = props => {
+  const dataColor = useSelector(state => state.colorReducer.dataColor)
+  const dispatch = useDispatch()
   return (
     <Fragment>
       <div className={clases.row}>
         <input
           type={props.type}
-          onChange={props.handlerChange}
-          value={props.input}
+          onChange={(event) => dispatch(handlerChangeColor(event))}
+          value={dataColor.input}
         />
-        <input
-          type="text"
-          onChange={props.handlerChangeTitle}
-          value={props.value}
+        <Input
+          className={clases.input}
+          onChange={(event) => dispatch(handlerChangeTitleColor(event))}
+          value={dataColor.value}
         />
         <br />
-        <Button onClick={props.add}>Добавить</Button>
+        <Button onClick={() => dispatch(addColor())}>Добавить</Button>
       </div>
-      {props.data.map((item, colorIndex) => (
+      {dataColor.colors.map((item, colorIndex) => (
         <div className={clases.row}>
           <input
             type="color"
@@ -28,7 +38,7 @@ let SelectColor = props => {
           />
           {item.title}
           <Button
-            onClick={() => props.delete(colorIndex)}
+            onClick={() => dispatch(deleteColor(colorIndex))}
             className={clases.close}
           >
             X

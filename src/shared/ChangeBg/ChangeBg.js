@@ -14,7 +14,7 @@ let ChangeBg = props => {
           />
         ) : null}
       </section>
-      <Button onClick={() => {props.onClick(); setShow(!show)}} className={clases.fill}>
+      <Button onClick={() => setShow(!show)} className={clases.fill}>
         🖌
       </Button>
       {show ? (

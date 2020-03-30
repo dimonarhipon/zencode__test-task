@@ -1,21 +1,32 @@
 import React, { Fragment } from 'react'
 import clases from './SelectStatus.module.css'
 import Button from '../../components/Button/Button'
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  addStatus,
+  deleteStatus,
+  handlerChangeStatus,
+} from '../../redux/status-reducer'
+import Input from '../../components/Input/Input'
 
-let SelectStatus = props => {
+let SelectStatus = () => {
+  const dataStatus = useSelector(state => state.statusReducer.dataStatus)
+  const dispatch = useDispatch()
   return (
     <Fragment>
       <div className={clases.row}>
-        <input type={props.type} />
-        <input type="text" onChange={props.handlerChange} value={props.value} />
+        <Input className={clases.input}
+          onChange={event => dispatch(handlerChangeStatus(event))}
+          value={dataStatus.value}
+        />
         <br />
-        <Button onClick={props.add}>Добавить</Button>
+        <Button onClick={() => dispatch(addStatus())}>Добавить</Button>
       </div>
-      {props.data.map((item, statusIndex) => (
+      {dataStatus.statuses.map((item, statusIndex) => (
         <div className={clases.row}>
           <p>{item.text}</p>
           <Button
-            onClick={() => props.delete(statusIndex)}
+            onClick={() => dispatch(deleteStatus(statusIndex))}
             className={clases.close}
           >
             X
