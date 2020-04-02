@@ -1,14 +1,6 @@
 import initialState from './initialState'
 import produce from 'immer'
-// import {load} from 'redux-localstorage-simple';
 
-// let initialState = load({namespace: "data"});
-
-// if (!initialState || !initialState.date || !initialState.date.length) {
-// 	initialState = {
-// 		date: [],
-// 	}
-// }
 export const ADD_STATUS = 'ADD-STATUS'
 export const DELETE_STATUS = 'DELETER-STATUS'
 export const CHANGE_STATUS = 'CHANGE-STATUS'
@@ -33,7 +25,7 @@ const statusReducer = (state = initialState, action) => {
     case CHANGE_STATUS:
       return {
         dataStatus: produce(state.dataStatus, item => {
-          item.value = action.event
+          item.value = action.value
         }),
       }
     default: 
@@ -47,10 +39,10 @@ export const deleteStatus = statusIndex => {
     index: statusIndex,
   }
 }
-export const handlerChangeStatus = event => {
+export const handlerChangeStatus = value => {
   return {
     type: CHANGE_STATUS,
-    event: event.target.value,
+    value: value,
   }
 }
 

@@ -1,41 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import clases from './Modal.module.css'
 import Button from '../Button/Button'
 import SelectStatus from '../../shared/SelectStatus/SelectStatus'
 import SelectColor from '../../shared/SelectColor/SelectColor'
 
 let Modal = props => {
-  const [show, setShow] = useState(true)
+  if (props.isOpen === false) return null
   return (
-    <>
-      {show ? (
-        <section className={clases.modal}>
-          {!props.type ? (
-            <SelectStatus
-              data={props.data}
-              add={props.add}
-              delete={props.delete}
-              value={props.value}
-              input={props.input}
-              type={props.type}
-              handlerChange={props.handlerChange}
-            />
-          ) : (
-            <SelectColor
-              data={props.data}
-              add={props.add}
-              delete={props.delete}
-              value={props.value}
-              input={props.input}
-              type={props.type}
-              handlerChange={props.handlerChange}
-              handlerChangeTitle={props.handlerChangeTitle}
-            />
-          )}
-          <Button onClick={() => setShow(false)}>Закрыть</Button>
-        </section>
-      ) : null}
-    </>
+    <section className={clases.modal}>
+      {!props.type ? <SelectStatus /> : <SelectColor type={props.type} />}
+      <Button onClick={() => props.onClose(false)}>Закрыть</Button>
+    </section>
   )
 }
 export default Modal

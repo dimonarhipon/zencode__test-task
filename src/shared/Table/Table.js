@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useForm } from 'react-hook-form'
 import clases from './Table.module.css'
 import Col from '../Column/Col'
 import Input from '../../components/Input/Input'
@@ -16,7 +17,7 @@ import {
   handlerChangeNameProject,
   handlerSelectedStatus,
   handlerChangeMonths,
-  handleChangeComplete
+  handleChangeComplete,
 } from '../../redux/rows-reducer'
 
 export let Tr = props => {
@@ -29,15 +30,16 @@ export let Td = props => {
 let Table = () => {
   const [showModalStatus, setShowModalStatus] = useState(false)
   const [showModalColor, setShowModalColor] = useState(false)
-  // const [state, dispatch] = useReducer(rowsReducer, initialState)
 
-  // const dataRowsHead = useSelector(state => state.rowsReducer.dataRowsHead)
   const dataRowsBody = useSelector(state => state.rowsReducer.dataRowsBody)
   const dataStatus = useSelector(state => state.statusReducer.dataStatus)
 
   const dispatch = useDispatch()
-  // console.log(dataRowsBody)
-  // console.log(dataStatus)
+
+  const { register } = useForm({
+    mode: 'onBlur',
+    reValidateMode: 'onBlur',
+  })
 
   let now = new Date()
   let month = []
@@ -77,17 +79,24 @@ let Table = () => {
             <Tr key={indexRow}>
               <Td className={clases.cellhours}>
                 <Input
+                  name={`fullName[${item}]`}
+                  ref={register(
+                    { name: 'fullName', type: 'custom' },
+                    { required: true, maxLength: 8 },
+                  )}
                   value={dataRowsBody[indexRow].fullName}
-                  onChange={event =>
-                    dispatch(handlerChangefullName(indexRow, event))
+                  onChange={value =>
+                    dispatch(handlerChangefullName(indexRow, value))
                   }
                 />
               </Td>
               <Td className={clases.cellhours}>
                 <Input
+                  name={`nameProject[${item}]`}
+                  ref={register}
                   value={dataRowsBody[indexRow].nameProject}
-                  onChange={event =>
-                    dispatch(handlerChangeNameProject(indexRow, event))
+                  onChange={value =>
+                    dispatch(handlerChangeNameProject(indexRow, value))
                   }
                 />
                 <Button
@@ -105,13 +114,20 @@ let Table = () => {
               </Td>
               <Td className={clases.cellhours}>
                 <select
+                  name="selectedValue"
+                  ref={register}
                   value={dataRowsBody[indexRow].selectedValue}
-                  onChange={event =>
-                    dispatch(handlerSelectedStatus(indexRow, event))
+                  onChange={value =>
+                    dispatch(handlerSelectedStatus(indexRow, value))
                   }
                 >
                   {dataStatus.statuses.map(({ text }) => (
-                    <option key={text} value={text}>
+                    <option
+                      key={text}
+                      value={text}
+                      ref={register}
+                      name={`selected[${text}]`}
+                    >
                       {text}
                     </option>
                   ))}
@@ -126,12 +142,14 @@ let Table = () => {
                       style={{ backgroundColor: item.background }}
                     >
                       <Input
+                        name={`week[${item}]`}
+                        ref={register}
                         value={item.number}
-                        onChange={event =>
+                        onChange={value =>
                           dispatch(
                             handlerChangeMonths(
                               monthsIndex,
-                              event,
+                              value,
                               month[index],
                               indexRow,
                             ),
@@ -139,12 +157,14 @@ let Table = () => {
                         }
                       />
                       <ChangeBg
+                        name={`color[${item}]`}
+                        ref={register}
                         background={item.background}
-                        onChangeComplete={color =>
+                        onChangeComplete={value =>
                           dispatch(
                             handleChangeComplete(
                               monthsIndex,
-                              color,
+                              value,
                               month[index],
                               indexRow,
                             ),
@@ -172,20 +192,24 @@ let Table = () => {
         />
         <Button
           className={clases.button}
-          onClick={() => setShowModalStatus(!showModalStatus)}
+          onClick={() => setShowModalStatus(true)}
           children={'Редактировать статус'}
         />
         <Button
           className={clases.button}
-          onClick={() => setShowModalColor(!showModalColor)}
+          onClick={() => setShowModalColor(true)}
           children={'Редактировать цвет'}
         />
       </section>
       <section className={clases.modalStatus}>
-        {showModalStatus ? <Modal /> : null}
+        <Modal isOpen={showModalStatus} onClose={setShowModalStatus} />
       </section>
       <section className={clases.modalColor}>
-        {showModalColor ? <Modal type="color" /> : null}
+        <Modal
+          isOpen={showModalColor}
+          onClose={setShowModalColor}
+          type="color"
+        />
       </section>
     </>
   )

@@ -1,25 +1,29 @@
-import { createStore, compose, combineReducers, applyMiddleware } from "redux";
-import { save } from "redux-localstorage-simple";
+import { createStore, compose, combineReducers, applyMiddleware } from 'redux'
+import { save, load } from 'redux-localstorage-simple'
 import rowsReducer from './rows-reducer'
 import statusReducer from './status-reducer'
 import colorReducer from './color-reducer'
 
-const rootReducer = combineReducers({ rowsReducer, statusReducer, colorReducer });
+const rootReducer = combineReducers({
+  rowsReducer,
+  statusReducer,
+  colorReducer,
+})
 
 const composeEnhancers =
-  process.env.NODE_ENV !== "production" &&
-  typeof window === "object" &&
+  process.env.NODE_ENV !== 'production' &&
+  typeof window === 'object' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
+    : compose
 
 const configureStore = preloadedState =>
   createStore(
     rootReducer,
     preloadedState,
-    composeEnhancers(applyMiddleware(save({ namespace: "data" })))
-  );
+    composeEnhancers(applyMiddleware(save())),
+  )
 
-const store = configureStore({});
+const store = configureStore(load())
 
-export default store;
+export default store

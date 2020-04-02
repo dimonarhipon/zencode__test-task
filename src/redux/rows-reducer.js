@@ -62,34 +62,31 @@ const rowsReducer = (state = initialState, action) => {
     case CHANGE_FULL_NAME:
       return {
         dataRowsBody: produce(state.dataRowsBody, item => {
-          item[action.index].fullName = action.event
+          item[action.index].fullName = action.value
         }),
       }
     case CHANGE_NAME_PROJECT:
       return {
         dataRowsBody: produce(state.dataRowsBody, item => {
-          console.log(item)
-          item[action.index].nameProject = action.event
+          item[action.index].nameProject = action.value
         }),
       }
     case SELECTED_STATUS:
       return {
         dataRowsBody: produce(state.dataRowsBody, item => {
-          item[action.index].selectedValue = action.event
+          item[action.index].selectedValue = action.value
         }),
       }
     case CHANGE_WEEK:
-      let data = Object.freeze(state.dataRowsBody)
       return {
-        dataRowsBody: produce(data, item => {
-            item[action.index].months[action.month][action.monthsIndex].number = action.event
+        dataRowsBody: produce(state.dataRowsBody, item => {
+            item[action.index].months[action.month][action.monthsIndex].number = action.value
         })
       }
-      
     case CHANGE_BACKGROUNG_WEEK:
       return {
         dataRowsBody: produce(state.dataRowsBody, item => {
-          item[action.index].months[action.month][action.monthsIndex].background = action.color
+          item[action.index].months[action.month][action.monthsIndex].background = action.value
         })
       }
     // case SHOW_BACKGROUND_WEEK:
@@ -117,41 +114,41 @@ export const deleteProject = indexRow => {
     index: indexRow,
   }
 }
-export const handlerChangefullName = (indexRow, event) => {
+export const handlerChangefullName = (indexRow, value) => {
   return {
     type: CHANGE_FULL_NAME,
     index: indexRow,
-    event: event.target.value,
+    value: value
   }
 }
-export const handlerChangeNameProject = (indexRow, event) => {
+export const handlerChangeNameProject = (indexRow, value) => {
   return {
     type: CHANGE_NAME_PROJECT,
     index: indexRow,
-    event: event.target.value,
+    value: value,
   }
 }
-export const handlerSelectedStatus = (indexRow, event) => {
+export const handlerSelectedStatus = (indexRow, value) => {
   return {
     type: SELECTED_STATUS,
     index: indexRow,
-    event: event.target.value,
+    value: value
   }
 }
-export const handlerChangeMonths = (monthsIndex, event, month, indexRow) => {
+export const handlerChangeMonths = (monthsIndex, value, month, indexRow) => {
   return {
     type: CHANGE_WEEK,
     monthsIndex,
-    event: event.target.value,
+    value: value,
     month,
     index: indexRow,
   }
 }
-export const handleChangeComplete = (monthsIndex, color, month, indexRow) => {
+export const handleChangeComplete = (monthsIndex, value, month, indexRow) => {
   return {
     type: CHANGE_BACKGROUNG_WEEK,
     monthsIndex,
-    color: color.hex,
+    value: value.hex,
     month,
     index: indexRow,
   }

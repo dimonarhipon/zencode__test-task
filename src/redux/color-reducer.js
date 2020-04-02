@@ -1,15 +1,5 @@
 import initialState from './initialState'
 import produce from 'immer'
-// import {load} from 'redux-localstorage-simple';
-
-// let initialState = load({namespace: "data"});
-
-// if (!initialState || !initialState.date || !initialState.date.length) {
-// 	initialState = {
-// 		date: [],
-// 	}
-// }
-
 
 export const ADD_COLOR = 'ADD-COLOR'
 export const DELETE_COLOR = 'DELETE-COLOR'
@@ -39,13 +29,13 @@ const colorReducer = (state = initialState, action) => {
     case CHANGE_COLOR:
       return {
         dataColor: produce(state.dataColor, item => {
-          item.input = action.event
+          item.input = action.value
         }),
       }
     case CHANGE_TITLE_COLOR:
       return {
         dataColor: produce(state.dataColor, item => {
-          item.value = action.event
+          item.value = action.value
         }),
       }
     default: 
@@ -60,16 +50,16 @@ export const deleteColor = colorIndex => {
     index: colorIndex,
   }
 }
-export const handlerChangeColor = event => {
+export const handlerChangeColor = value => {
   return {
     type: CHANGE_COLOR,
-    event: event.target.value,
+    value: value,
   }
 }
-export const handlerChangeTitleColor = event => {
+export const handlerChangeTitleColor = value => {
   return {
     type: CHANGE_TITLE_COLOR,
-    event: event.target.value,
+    value: value,
   }
 }
 
