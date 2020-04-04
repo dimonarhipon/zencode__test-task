@@ -74,10 +74,11 @@ const rowsReducer = (state = initialState, action) => {
     case SELECTED_STATUS:
       return {
         dataRowsBody: produce(state.dataRowsBody, item => {
-          item[action.index].selectedValue = action.value
+          item[action.index].selectedValue = action.value.target.value
         }),
       }
     case CHANGE_WEEK:
+      if (action.value > 90 || action.value < 0) return state
       return {
         dataRowsBody: produce(state.dataRowsBody, item => {
             item[action.index].months[action.month][action.monthsIndex].number = action.value

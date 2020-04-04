@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import {useForm} from 'react-hook-form'
+// import {useForm} from 'react-hook-form'
 import clases from './SelectStatus.module.css'
 import Button from '../../components/Button/Button'
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,7 +14,7 @@ let SelectStatus = () => {
   const dataStatus = useSelector(state => state.statusReducer.dataStatus)
   const dispatch = useDispatch()
 
-  const {register} = useForm();
+  // const {register} = useForm();
   return (
     <Fragment>
       <div className={clases.row}>

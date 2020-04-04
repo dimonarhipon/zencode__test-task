@@ -92,8 +92,8 @@ let Table = () => {
               </Td>
               <Td className={clases.cellhours}>
                 <Input
-                  name={`nameProject[${item}]`}
-                  ref={register}
+                  // name={`nameProject[${item}]`}
+                  // ref={register}
                   value={dataRowsBody[indexRow].nameProject}
                   onChange={value =>
                     dispatch(handlerChangeNameProject(indexRow, value))
@@ -114,8 +114,8 @@ let Table = () => {
               </Td>
               <Td className={clases.cellhours}>
                 <select
-                  name="selectedValue"
-                  ref={register}
+                  // name="selectedValue"
+                  // ref={register}
                   value={dataRowsBody[indexRow].selectedValue}
                   onChange={value =>
                     dispatch(handlerSelectedStatus(indexRow, value))
@@ -125,8 +125,8 @@ let Table = () => {
                     <option
                       key={text}
                       value={text}
-                      ref={register}
-                      name={`selected[${text}]`}
+                      // ref={register}
+                      // name={`selected[${text}]`}
                     >
                       {text}
                     </option>
@@ -142,8 +142,9 @@ let Table = () => {
                       style={{ backgroundColor: item.background }}
                     >
                       <Input
-                        name={`week[${item}]`}
-                        ref={register}
+                        type="number"
+                        // name={`week[${item}]`}
+                        // ref={register}
                         value={item.number}
                         onChange={value =>
                           dispatch(
@@ -157,8 +158,8 @@ let Table = () => {
                         }
                       />
                       <ChangeBg
-                        name={`color[${item}]`}
-                        ref={register}
+                        // name={`color[${item}]`}
+                        // ref={register}
                         background={item.background}
                         onChangeComplete={value =>
                           dispatch(

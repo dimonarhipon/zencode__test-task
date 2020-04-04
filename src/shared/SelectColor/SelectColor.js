@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import clases from './SelectColor.module.css'
 import Button from '../../components/Button/Button'
 import { useSelector, useDispatch } from 'react-redux'
-import { useForm} from 'react-hook-form'
+// import { useForm} from 'react-hook-form'
 import Input from '../../components/Input/Input'
 import {
   addColor,
@@ -14,7 +14,7 @@ import {
 let SelectColor = props => {
   const dataColor = useSelector(state => state.colorReducer.dataColor)
   const dispatch = useDispatch()
-  const {register} = useForm()
+  // const {register} = useForm()
   return (
     <Fragment>
       <div className={clases.row}>
