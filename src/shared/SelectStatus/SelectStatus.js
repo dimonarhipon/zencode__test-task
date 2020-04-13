@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-// import {useForm} from 'react-hook-form'
 import clases from './SelectStatus.module.css'
 import Button from '../../components/Button/Button'
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,13 +13,11 @@ let SelectStatus = () => {
   const dataStatus = useSelector(state => state.statusReducer.dataStatus)
   const dispatch = useDispatch()
 
-  // const {register} = useForm();
   return (
     <Fragment>
       <div className={clases.row}>
         <Input className={clases.input}
-          // name="statusText"
-          // ref={register}
+          name="statusText"
           onChange={event => dispatch(handlerChangeStatus(event))}
           value={dataStatus.value}
         />

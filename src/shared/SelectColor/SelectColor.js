@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import clases from './SelectColor.module.css'
 import Button from '../../components/Button/Button'
 import { useSelector, useDispatch } from 'react-redux'
-// import { useForm} from 'react-hook-form'
 import Input from '../../components/Input/Input'
 import {
   addColor,
@@ -14,20 +13,17 @@ import {
 let SelectColor = props => {
   const dataColor = useSelector(state => state.colorReducer.dataColor)
   const dispatch = useDispatch()
-  // const {register} = useForm()
   return (
-    <Fragment>
+    <>
       <div className={clases.row}>
         <input
-          // name="color"
-          // ref={register}
+          name="color"
           type={props.type}
           onChange={(event) => dispatch(handlerChangeColor(event))}
           value={dataColor.input}
         />
         <Input
-          // name="colorTitle"
-          // ref={register}
+          name="colorTitle"
           className={clases.input}
           onChange={(event) => dispatch(handlerChangeTitleColor(event))}
           value={dataColor.value}
@@ -38,8 +34,7 @@ let SelectColor = props => {
       {dataColor.colors.map((item, colorIndex) => (
         <div className={clases.row} key={colorIndex}>
           <input
-            // name={`color[${item}]`}
-            // ref={register}
+            name={`color[${item}]`}
             readOnly
             type="color"
             value={item.color}
@@ -54,7 +49,7 @@ let SelectColor = props => {
           </Button>
         </div>
       ))}
-    </Fragment>
+    </>
   )
 }
 export default SelectColor

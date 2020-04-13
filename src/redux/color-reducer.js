@@ -29,7 +29,7 @@ const colorReducer = (state = initialState, action) => {
     case CHANGE_COLOR:
       return {
         dataColor: produce(state.dataColor, item => {
-          item.input = action.value
+          item.input = action.value.target.value
         }),
       }
     case CHANGE_TITLE_COLOR:
